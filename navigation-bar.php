@@ -1,0 +1,236 @@
+<?php
+<header>
+    <div class="bar"> 
+      <div class="title">
+        <div>UK's Suicide Helpline</div>
+        <div>NHS - Mental Health</div>
+        <div>Mental Health Foundation</div>
+      </div>
+      <div class="marquee">
+        <div>0800 1111 - Calling this number will not show up on your phone.</div>
+        <div>Help and support is available right now if you need it. You do not have to struggle with difficult feelings alone.</div>
+        <div>Unless it says otherwise, they're open 24 hours a day, every day.
+        </div>
+      </div>
+    </div>
+
+    <div class="Block_Marquee"></div> 
+    <div class="white_header">   
+        <div class="topnav" id="myTopnav">
+            <div class="top-bar-left">
+            <a href="#home">
+                <img class="GameMaglogo" onclick="openNav()" src="Images/Mind-PNG-Picture.png" 
+                alt="GameMagazineLogoImage">
+            </a>
+            <a href="#home">  
+                <img class="FaceBooklogo" onclick="openNav()" src="Images/facebook-2661207_1280.jpg" 
+                alt="GameMagazineLogoImage">
+            </a>
+            <a href="#home"> 
+                <img class="Twitterlogo" onclick="openNav()" src="Images/twitter-social-icon-image-block-01-en-28may20.jpg" 
+                alt="GameMagazineLogoImage">
+            </a>
+            <a href="index.html" class="active">Home</a>
+
+            <div class="dropdown">
+              <button class="dropbtn">Assessment Games</button>
+              <div class="dropdown-content">
+                <a href="pac-man.html">MAZE GAME</a>
+                <a href="tetris.html">BLOCK GAME</a>
+                <a href="numberBubbles.html">NUMBER BUBBLE GAME</a>
+                <a href="wordScroll.html">WORD LISTEN GAME</a>
+                <a href="numberGrid.html">NUMBER GRID GAME</a>
+              </div>
+            </div> 
+
+
+            <a href="mental-health.html" class="active">Mental Health</a>
+            <a href="about-us.html" class="active">About</a>
+            <a href="contact-us.html" class="active">Contact Info</a>
+            <a href="resultindex.html" class="active">My Results</a>
+            </div>
+
+            <div class="top-bar-right">
+            <a href="#home">
+                <img class="Profile_Image" onclick="openNav()" src="Images/Profile%20Image%2001%20.png" 
+                alt="ProfileImage">
+            </a>
+            <div class="login_btn">
+                <button onclick="document.getElementById('idLogin').style.display='block'">
+                    LOGIN / SIGN UP
+                </button>
+                <div id="idLogin" class="modal">
+                    <form class="modal-content animate" action="/action_page.php" method="post">
+                        <div class="imgcontainer">
+                            <span           onclick="document.getElementById('idLogin').style.display='none'" class="close" title="Close Modal">&times;
+                            </span>
+                            <img src="Images/384921a9a512810bae3c7970fafb83eb.gif" alt="Avatar" class="avatar">
+                        </div>
+                        <div class="container">
+                            <label id="uname"><b>Username</b></label>
+                            <input type="text" placeholder="Enter Username eg. Rick" name="uname" required>
+
+                            <!--PASSWORD SECTION-->   
+                            <label id="psw"><b>Password</b></label>
+                            <input type="password" placeholder="Enter Password eg. Sanchez" name="psw" required>
+
+                            <button class="loginBtn" type="submit">Login</button>
+                            <label>
+                                <input type="checkbox" checked="checked" name="remember"> Remember me
+                            </label>
+                        </div>
+                        <div class="container">
+                            <button type="button" onclick="document.getElementById('idLogin').style.display='none'" class="cancelBtn">Cancel</button>
+                            <span class="psw">Forgot <a href="#">password?</a></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="dropdown01">
+                <div class="dropbtn01">
+                    <img src="Images/search-find-magnifier-function-player-keyword-name-512.png" alt="search">
+                    <i class="fa fa-caret-down"></i>
+                </div>
+                <div class="dropdown-content01">
+
+                    <!--SEARCH BAR-->   
+                    <div class="search_box">
+                    <div class="search_bar">
+                    <input type="text" placeholder="eg. Example">
+                    </div>
+                        <div class="search_btn">
+                            <button>
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+
+            <!--MODAL JAVA SCRIPT CALLBACK-->   
+            <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!--SIDE NAVIGATION-->
+    <div id="mySidenav" class="sidenav">
+        <a href="#">
+            <img id="GMlside" class="GameMaglogoside" src="Images/Mind-PNG-Picture.png" 
+            alt="GameMagazineLogoImage">
+        </a>
+        <a href="javascript:void(0)" id="closeButton" 
+        class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="sideContent">
+            <div class="sidegallery">
+
+            <!--GAMES OF THE MONTH-->   
+            <h1>GAMES OF THE MONTH</h1>
+            <!--RATCHET AND CLANCK-->   
+            <a href="https://store.playstation.com/en-za/product/EP9000-PPSA01474_00-RATCHETCLANKRIFT">Ratchet and Clank: Rift Apart
+            </a>
+            <a>
+                <div class="game_banner">
+                    <img src="Images/ps5-ratchet_clank-video-thumb-block-06-en-110620banner.jpg" alt="ratchet">
+                </div>
+            </a>
+            <!--DOOM ETERNAL-->   
+            <a href="https://bethesda.net/en/game/doom">DOOM: ETERNAL - The Ancient Gods Part II
+            </a>
+            <a>
+                <div class="game_banner">
+                    <img src="Images/doom-eternal-ancient-gods-2@2000x1270.jpg" alt="doom">
+                </div>
+            </a>
+            <!--GENSHIN IMPACT-->   
+            <a href="https://genshin.mihoyo.com/en/news/detail/9368">Genshin Impact v1.4: Windblume
+            </a>
+            <a>
+                <div class="game_banner">
+                    <img src="Images/genshin_impact_invitation_of_windblume_event.jpg" alt="genshin">
+                </div>
+            </a>
+            <!--WARFRAME-->   
+            <a href="https://www.warframe.com/">Warframe</a>
+                <a>
+                    <div class="game_banner">
+                        <img src="Images/warframe-digital-extremes@2000x1270.jpg" alt="warframe">
+                    </div>
+                </a>
+            </div>
+
+            <!--IMAGE SIDE GALLERY-->   
+            <div class="sidegallery">
+                <h1>NEWS</h1>
+                <a href="https://www.emberlab.com/">Kena: Bridge of Spirits</a>
+                <a href="https://www.ea.com/news">EA</a>
+                <a href="https://blog.playstation.com/">Playstation</a>
+                <a href="https://www.xbox.com/en-ZA/xbox-game-pass">XBOX Game Pass</a>
+            </div>
+
+            <!--COMMUNITY LINKS-->   
+            <div class="sidegallery">
+                <h1>COMMUNITY</h1>
+                <a href="https://forums.warframe.com/forum/113-livestreams-contests/">Warframe Community</a>
+                <a href="https://www.hoyolab.com/genshin/home/1">Genshin Impact Community</a>
+                <a href="https://www.youtube.com/">Youtube</a>
+                <a href="https://www.facebook.com/">Facebook</a>
+                <a href="https://twitter.com/?lang=en">Twitter</a>
+                <a href="https://www.instagram.com/">Instagram</a>
+                <a href="https://discord.com/">Discord</a>
+            </div>
+
+            <!--ABOUT LINKS-->   
+            <div class="sidegallery">
+                <h1>ABOUT</h1>
+                <a href="supportindex.html">Contact us</a>
+                <p>Connect with us</p>
+                <div class="connectImagegallery">    
+                    <a href="https://www.youtube.com/">
+                        <img src="Images/youtube-social-icon-01-18may18.png" alt="youtube">
+                    </a>
+                </div>
+
+                <div class="connectImagegallery">
+                    <a href="https://www.facebook.com/">
+                        <img src="Images/facebook-2661207_1280.jpg" alt="facebook">
+                    </a>
+                </div>
+
+                <div class="connectImagegallery">
+                    <a href="https://twitter.com/?lang=en">
+                        <img src="Images/twitter-social-icon-image-block-01-en-28may20.jpg" alt="twitter">
+                    </a>
+                </div>
+
+                <div class="connectImagegallery">
+                    <a href="https://www.instagram.com/">
+                        <img src="Images/instagram-social-icon-image-block-03-en-28may20.jpg" alt="insta">
+                    </a>
+                </div>
+
+                <div class="connectImagegallery">
+                    <a href="https://www.google.com/">
+                        <img src="Images/image-20150902-6700-t2axrz.webp" alt="google">
+                    </a>
+                </div>
+            </div>
+
+            <div class="sidegallery">
+                <h1>SUPPORT</h1>
+                <a href="supportindex.html">Service</a>
+                <a href="supportindex.html">Help</a>
+                <a href="supportindex.html">Manuals</a>
+            </div>
+        </div>
+    </div>
+
+    <span style="font-size:100px;cursor:pointer" onclick="openNav()">
+        <img class="GameMAGImage"
+             src="Images/giphy (2).gif" 
+             alt="GameMagazineLogoImage">
+    </span>
+</header>
+?>
