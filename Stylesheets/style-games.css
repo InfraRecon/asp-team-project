@@ -1,0 +1,1295 @@
+/*index.html CSS*/
+body 
+{
+  overflow-x: hidden; /* Hide scrollbars */
+}
+////
+
+/*
+img 
+{
+    transition: transform .2s;  Animation 
+}
+
+img:hover 
+{
+    transform: scale(1.2);  (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) 
+}
+*/
+
+.gameContainer
+{
+    position: relative;
+    top: -1000px;
+}
+
+#sketchContainer
+{
+    position: absolute;
+    top: 500px;
+    left: 30vw;
+    padding: 1vw;
+    border: 0.5vw solid white;
+    border-radius: 1vw;
+    transform: scale(1);
+}
+
+.startButton
+{
+    position: absolute;
+    top: 470px;
+    z-index: 0;
+}
+
+.startButton img
+{
+    padding: 100px 10px; 
+    font-family: calibri;
+    font-size: 2vw;
+    font-weight: bold;
+    background: rgb(0,0,0,0.5);
+    transition: 0.5s ease;
+    border: 1px solid black;
+    border-radius: 1vw;
+}
+
+.startButton a
+{
+    font-family: calibri;
+    font-size: 2vw;
+    font-weight: bold;
+    transition: 0.5s ease;
+}
+
+.startButton img:hover
+{
+    cursor: pointer;
+    transform: scale(0.9);
+}
+
+.stopButton
+{
+    position: absolute;
+    top: 790px;
+    z-index: 0;
+}
+
+.stopButton img
+{
+    padding: 100px 10px; 
+    font-family: calibri;
+    font-size: 2vw;
+    font-weight: bold;
+    background: rgb(0,0,0,0.5);
+    transition: 0.5s ease;
+    border: 1px solid black;
+    border-radius: 1vw;
+}
+
+.stopButton a
+{
+    font-family: calibri;
+    font-size: 2vw;
+    font-weight: bold;
+    transition: 0.5s ease;
+}
+
+.stopButton img:hover
+{
+    cursor: pointer;
+    transform: scale(0.9);
+}
+
+.GameMAGMainImage
+{
+    position: absolute;
+    top: 15vw;
+    left: 4vw;
+    width: 20vw;
+    z-index: 1;
+}
+
+.GAME-MainLogo
+{
+    position: absolute;
+    text-decoration: none;
+    font-size: 8vw;
+    padding: 0vw;
+    top: 10vw;
+    left: 4vw;
+    font-family: Calibri;
+    color: white;
+    text-shadow: 0.11vw 0.1vw #FF0000;
+    z-index: 1;
+}
+
+.MAG-MainLogo
+{
+    position: absolute;
+    text-decoration:none;
+    font-size: 10vw;
+    padding: 0vw;
+    top:13vw;
+    left: 4vw;
+    font-family: Calibri;
+    color: white;
+    text-shadow: 0.11vw 0.1vw #FF0000;
+    z-index: 1;
+}
+
+
+
+.MainImageTitle
+{
+    position: absolute;
+    top: 5vw;
+    left: 2.5vw;
+    font-size: 5vw;
+    font-family: Calibri;
+    color: white;
+    z-index: 1;
+    
+/*
+    text-shadow: 0vw 0.2vw purple, 
+                 0.2vw 0vw black,
+                 0vw -0.2vw white,
+                 -0.2vw 0vw black;
+*/
+    
+}
+
+.parallax
+{
+    /* The image used */
+    position: relative;
+    background-image: url("Style Images/wp2241790.png");
+
+    /* Set a specific height */
+    min-height: 10vw; 
+    width: 100vw;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media only screen and (max-width: 1000px) 
+{   
+    .parallax
+    {
+        margin-top: -15vw;
+        background-attachment: fixed;
+        background-position: center;
+        min-height: 240vw;
+    }
+}
+
+/*Main Page IMAGE*/
+/* Slideshow container */
+.slideshow-container img
+{
+    top: 3vw;
+    position: relative;
+    margin: auto;
+    transition: transform .60s; /* Animation */
+    text-align: center;
+    width: 100%; 
+    background-image: linear-gradient(red, yellow);
+    z-index: 0;
+    
+    animation-name: zoomer;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+}
+
+.slideshow-container img:hover
+{
+    transform: scale(1.01); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+@media only screen and (max-width: 1000px) 
+{
+    .slideshow-container img
+    {
+        width: 100%;
+        left: 0%;
+        top: 15vw;
+    }
+}
+
+.Block_Gradient
+{
+    top: 0vw;
+    left: 0vw;
+    position: absolute;
+    height: 65vw;
+    width: 100vw;
+    
+    background-image: linear-gradient(white,white,transparent,transparent,transparent,transparent,transparent,transparent,transparent,transparent,transparent,transparent,transparent,transparent,white,white,white);
+    
+    z-index: 1;
+}
+
+@media only screen and (max-width: 1000px) 
+{
+    .Block_Gradient
+    {
+        width: 100%;
+        height: 125vw;
+        left: 0;
+        top: -20vw;
+        background-image: linear-gradient(transparent,transparent,transparent,transparent,transparent,transparent,transparent,transparent,transparent,transparent,black,black,black,black,black,transparent);
+    }
+}
+
+.Block_Gradient01
+{
+    top: -19.9vw;
+    left: 0vw;
+    position: absolute;
+    height: 80vw;
+    width: 100%;
+    
+    background-image: linear-gradient(transparent,transparent,transparent,transparent,transparent,transparent,transparent,transparent,transparent,transparent,transparent,transparent,transparent);
+    
+    z-index: 1;
+}
+
+@media only screen and (max-width: 1000px) 
+{
+    .Block_Gradient01
+    {
+        width: 100%;
+        height: 125vw;
+        left: 0;
+        top: -20vw;
+        background:
+    }
+}
+
+
+
+
+/* Next & previous buttons */
+.prev, .next 
+{
+    cursor: pointer;
+    position: relative;
+    top: 30vw;
+
+    color: rgb(255,255,255,1);
+    font-weight: bold;
+    font-size: 4vw;
+    transition: 0.6s ease;
+    border-radius: 100%;
+    user-select: none;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-bottom: 0.5vw;
+    padding-top: 0.5vw;
+    background-color: rgb(0,0,0,0.2);
+    z-index: 3;
+}
+
+@media only screen and (max-width: 1000px) 
+{
+    .prev, .next 
+    {
+        top: 40vw;
+    }
+}
+
+/* Position the "next button" to the right */
+.next 
+{
+    right: 0;
+    float:right;
+    border-radius: 100%;
+}
+
+.prev 
+{
+    left: 0;
+    float:left;
+    border-radius: 100%;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover 
+{
+    color: red;
+}
+
+/* Caption text */
+
+.text img
+{
+    display: none;
+}
+
+@media only screen and (max-width: 1000px) 
+{
+    .text img
+    {
+        top: 40vw;
+        left: 9vw;
+        width: 80%;
+    }
+}
+
+.textHeader
+{
+    position: absolute;
+    font-size: 2vw;
+    padding: 1vw 1vw;
+    top: 10vw;
+    left:2vw;
+    float: left;
+    text-align: left;
+    font-weight: bolder;
+    color: black;
+    font-family: sans-serif;
+    background:  rgba(255,255,255, 0.5);
+    width:35vw;
+    z-index: 1;
+}
+
+.text01 
+{
+    position: absolute;
+    font-size: 1.5vw;
+    padding: 1vw 1vw;
+    top: 15vw;
+    left: 2vw;
+    float: left;
+    text-align: left;
+    font-weight: normal;
+    color: black;
+    font-family: sans-serif;
+    background:  rgba(255,255,255, 0.5);
+    width:35vw;
+    z-index: 1;
+}
+
+@media only screen and (max-width: 1000px) 
+{
+    .text01 
+    {
+        float: none;
+        font-size: 3vw;
+        position: relative;
+        top: 67vw;
+        left: 0vw;
+    }
+}
+
+.textButton
+{
+    position: absolute;
+    top: 30vw;
+    left: 2vw;
+    padding: 1vw;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    font-size: 1.5vw;
+    font-family: Arial;
+    font-weight: bolder;
+    background: rgb(0,100,100,0.8);
+    border: 0.3vw solid transparent;
+    color: black;
+    z-index: 2;
+
+    transition: .3s ease;
+}
+
+.textButton:hover
+{
+    transform:  scale(1.05);
+    border: 0.3vw solid white;
+}
+
+@media only screen and (max-width: 1000px) 
+{
+    .textButton
+    {
+        position: absolute;
+        font-size: 2.5vw;
+        top: 90vw;
+    }
+}
+
+@media only screen and (max-width: 600px) 
+{
+    .numbertext
+    {
+            top: 10vw;
+            left: 0vw;
+    }
+}
+
+@media only screen and (max-width: 1000px) 
+{
+    .text
+    {
+        padding: 3.6vw 1vw;
+    }
+}
+
+/* The dots/bullets/indicators */
+.dot_collection
+{
+    position: absolute;
+    top: 45vw;
+    left: -1vw;
+    width: 100%;
+    z-index: 1;
+}
+
+@media only screen and (max-width: 1000px) 
+{
+    .dot_collection
+    {
+        top: 100vw;
+        left: 0vw;
+    }
+}
+
+.dot 
+{
+    height: 1vw;
+    width: 1vw;
+    cursor: pointer;
+    border-radius: 0%;
+    display: inline-block;
+    transition: black 0.6s ease;
+    border: 0.25vw solid transparent;
+    border-radius: 20%;
+    background-color: white;
+}
+
+
+.activedots, .dot:hover 
+{
+    background-color: skyblue;
+    border: 0.25vw solid skyblue;
+    border-radius: 20%;
+}
+
+/* Fading animation */
+.fade 
+{
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1s;
+    animation-name: fade;
+    animation-duration: 1s;
+}
+
+@-webkit-keyframes fade 
+{
+    from {opacity: .1} 
+    to {opacity: .8}
+}
+
+@keyframes fade 
+{
+    from {opacity: .1} 
+    to {opacity: .8}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+.Game_Assessment
+{
+    left:center;
+    position: relative;
+    text-align: center;   
+    font-weight: bolder;
+    font-family: sans-serif;
+    color: Black;
+    font-size: 3vw;
+}
+
+.Reviews_and_comments
+{
+    top: 1.5vw;
+    left:-6vw;
+    position: relative;
+    text-align: center;   
+    font-family: sans-serif;
+    color: white;
+    font-size: 2vw;
+}
+
+/*EXPLORE GAMES TITLE*/
+.Explore_Games
+{
+    top: 1.5vw;
+    left:-6vw;
+    position: relative;
+    text-align: center;   
+    font-family: sans-serif;
+    color: black;
+    font-size: 2vw;
+}
+
+@media only screen and (max-width: 1000px) 
+{
+    .Explore_Games
+    {
+        font-size: 5vw;
+    }
+}
+
+/*EXPLORE GAMES TITLE*/
+.More_On_Mental_Health
+{
+    top: vw;
+    left:-25vw;
+    position: relative;
+    text-align: center;   
+    font-family: sans-serif;
+    color: black;
+    font-size: 2vw;
+}
+
+@media only screen and (max-width: 1000px) 
+{
+    .More_On_Mental_Health
+    {
+        font-size: 5vw;
+    }
+}
+
+/* Slideshow containers */
+.slideshow-container01
+{
+    top: 210vw;
+    position: absolute;
+    padding: 1rem;
+    margin: auto;
+    transition: transform .60s; /* Animation */
+    text-align: center;
+    width: 100%; 
+    left: 0vw;
+    
+    background-image: url("Style%20Images/best-mental-health-apps-2021-1611590537.png");
+    
+        /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    z-index: 1;
+}
+
+.slideshow-container02
+{
+    top: 270vw;
+    position: absolute;
+    padding: 2.5vw;
+    margin: auto;
+    transition: transform .60s; /* Animation */
+    text-align: center;
+    width: 100%; 
+    left: 0vw;
+    
+    background-image: url("Style%20Images/6676242.jpg");
+    
+        /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    z-index: 1;
+}
+
+.slideshow-container-content
+{
+    position: relative;
+    left:5vw;
+}
+
+.slideshow-container02-content
+{
+    position: relative;
+    left:5vw;
+}
+
+.slideshow-container01 img:hover
+{
+    transform: scale(1.01); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.slideshow-container02 img:hover
+{
+    transform: scale(1.01); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+@media only screen and (max-width: 1000px) 
+{
+    .slideshow-container01
+    {
+        width: 100%;
+        left: 0vw;
+        top: 120vw;
+    }
+}
+
+/* Next & previous buttons */
+.prev01, .next01, .prev02, .next02 
+{
+    position: absolute;
+    cursor: pointer;
+    color: rgb(0,0,0);
+    font-weight: bold;
+    font-size:4vw;
+    transition: 0.6s ease;
+    border-radius: 100%;
+    user-select: none;
+    padding-left: 0.1vw;
+    padding-right: 0.1vw;
+    padding-bottom: 0.2vw;
+    padding-top: 0.2vw;
+    background-color: transparent;
+}
+
+@media only screen and (max-width: 1000px) 
+{
+    .prev01, .next01 
+    {
+        font-size: 4vw;
+        padding-left: 2vw;
+        padding-right: 2vw;
+        padding-bottom: 0.5vw;
+        padding-top: 0.5vw;
+        top: 158vw;
+    }
+}
+
+/* Position the "next button" to the right */
+.next01
+{
+    right: 5vw;
+    top: 10vw;
+    float:right;
+    border-radius: 100%;
+    color: white;
+}
+
+.prev01
+{
+    top: 10vw;
+    left: 4vw;
+    float:left;
+    border-radius: 100%;
+    color: white;
+}
+
+.next02
+{
+    right: 5vw;
+    top: 10vw;
+    float:right;
+    border-radius: 100%;
+    color: white;
+}
+
+.prev02
+{
+    top: 10vw;
+    left: 4vw;
+    float:left;
+    border-radius: 100%;
+    color: white;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev01:hover, .next01:hover, .prev02:hover, .next02:hover 
+{
+    color: black;
+}
+
+.textButton01
+{
+    position: relative;
+    top: 28vw;
+    left: 4vw;
+    padding: 1vw;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    font-size: 1.5vw;
+    font-family: Tw Cen MT;
+    background-color: darkgreen;
+    border-color: transparent;
+    color: white;
+    z-index: 2;
+}
+
+.textButton01:hover
+{
+    color: black;
+}
+
+@media only screen and (max-width: 1000px) 
+{
+    .textButton01
+    {
+        position: absolute;
+        font-size: 2.5vw;
+        top: 90vw;
+        left: 37vw;
+    }
+}
+
+/* Number text (1/3 etc) */
+.numbertext01
+{
+    color: #f2f2f2;
+    font-size: 1.5vw;
+    padding: 2vw 1vw;
+    position: absolute;
+    color: white;
+    font-family: Arial Rounded MT;
+    top: 4vw;
+    left: 0vw;
+    background: rgb(0,0,0,0.5);
+    border-bottom-right-radius: 50%;
+    z-index: 2;
+}
+
+@media only screen and (max-width: 1000px) 
+{
+    .numbertext01
+    {
+            top: 6vw;
+            left: 0vw;
+    }
+}
+
+@media only screen and (max-width: 600px) 
+{
+    .numbertext01
+    {
+        top: 10vw;
+        left: 0vw;
+    }
+}
+
+/* The dots/bullets/indicators */
+.dot_collection01
+{
+    position: absolute;
+    top: 230vw;
+    left: 45.5%;
+    z-index: 3;
+}
+
+.dot_collection02
+{
+    position: absolute;
+    top: 304vw;
+    left: 45.5%;
+    z-index: 3;
+}
+@media only screen and (max-width: 1000px) 
+{
+    .dot_collection01
+    {
+        top: 280vw;
+        left: center;
+    }
+}
+
+.dot01
+{
+    cursor: pointer;
+    height: 1vw;
+    width: 1vw;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 0%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    background-color: grey;
+}
+
+.dot02
+{
+    cursor: pointer;
+    height: 1vw;
+    width: 1vw;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 0%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    background-color: grey;
+}
+.active01, .active02, .dot01:hover ,.dot02:hover 
+{
+    background-color: skyblue;
+}
+
+/* Fading animation */
+.fade01
+{
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1s;
+    animation-name: fade;
+    animation-duration: 1s;
+}
+
+.fade02
+{
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1s;
+    animation-name: fade;
+    animation-duration: 1s;
+}
+
+@-webkit-keyframes fade 
+{
+    from {opacity: .1} 
+    to {opacity: 2}
+}
+
+@keyframes fade 
+{
+    from {opacity: .1} 
+    to {opacity: 2}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 1000px) 
+{
+    .prev01, .next01 
+    {
+        font-size: 10vw;
+    }
+    
+    .next01 
+    {
+        top: 155vw;
+        right: 1vw;
+    }
+    
+    .prev01 
+    {
+        top: 155vw;
+        left: 1vw;
+    }
+}
+
+
+/*Image Gallery*/
+div.gallery 
+{
+    position: relative;
+    margin: 1.5vw;
+    left: 1.5vw;
+    text-align: center;
+    float: left;
+    border: 0.25vw solid transparent;
+    width: 14%;
+    padding: 0.5vw;
+    border-radius: 10%;
+}
+
+div.galleryNew 
+{
+    position: relative;
+    margin: 1.5vw;
+    left: 1.5vw;
+    text-align: center;
+    float: left;
+    width: 80%;
+    height: 25vw;
+    padding: 1vw;
+}
+
+@media only screen and (max-width: 1000px) 
+{
+    div.gallery
+    {
+        left: 2.5vw;
+        margin: 0.5vw;
+        padding: 1vw;
+        width: 43%;
+        padding: 1vw;
+    }
+}
+
+div.gallery:hover 
+{
+    border: 0.25vw solid white;
+    animation-name: example;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
+div.galleryNew:hover 
+{
+    animation-name: example;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
+
+div.gallery img 
+{
+    width: 100%;
+    height: auto;
+    border-radius: 5%;
+}
+
+div.desc
+{
+    background: transparent;
+    font-size: 1.1vw;
+
+    color: white;
+    text-align: center;
+    font-family: Calibri;
+}
+
+@media only screen and (max-width: 1000px) 
+{
+    div.desc 
+    {
+        font-size: 0vw;
+    }
+}
+
+
+@keyframes zoomer
+{
+    0%   {transform: scale(1.1); left:-150vw;}
+    15% {transform: scale(1.1);left:0vw;}
+    100% {transform: scale(1);}
+}
+
+@keyframes example
+{
+    0%   {left:1.5vw; top:0vw;}
+    50% {left:1.5vw; top:-2vw;}
+    100%   {left:1.5vw; top:0vw;}
+}
+
+@media only screen and (max-width: 1000px) 
+{
+    @keyframes example
+    {
+        0%   {left: 2.5vw; top:0vw;}
+        50% {left: 2.5vw; top:-2vw;}
+        100%   {left: 2.5vw; top:0vw;}
+    }
+}
+
+
+
+    /*GAME LAYOUT*/
+.pacManGame
+{
+    position: relative;
+    align-content: center;
+    top: 100px;
+    left: 30%;
+    margin:1vw;
+}
+
+/*Ratings*/
+.review_header
+{
+    position: relative;
+    top: -140vw;
+    font-size: 4vw;
+    z-index: 1;
+    color: white;
+    font-family: Agency FB;
+    text-align: center;
+    text-decoration: overline;
+    text-shadow: 0vw 0.1vw black,
+                 0.1vw 0vw black,
+                 0vw -0.1vw black,
+                 -0.1vw 0vw black;
+}
+
+.rating_box
+{
+    position: absolute;
+    padding: 1vw;
+    z-index: 1;
+    width: 100%;
+    background: white;
+    font-family: calibri;
+    font-size: 1vw;
+}
+
+.heading 
+{
+    font-size: 25px;
+    margin-right: 25px;
+}
+
+.fa 
+{
+    font-size: 25px;
+}
+
+.checked 
+{
+    color: orange;
+}
+
+/* Three column layout */
+.side 
+{
+    float: left;
+    width: 15%;
+    margin-top:10px;
+}
+
+.middle 
+{
+    margin-top:10px;
+    float: left;
+    width: 70%;
+}
+
+/* Place text to the right */
+.right 
+{
+    text-align: right;
+}
+
+/* Clear floats after the columns */
+.row:after 
+{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* The bar container */
+.bar-container 
+{
+    width: 100%;
+    background-color: #f1f1f1;
+    text-align: center;
+    color: white;
+}
+
+/* Individual bars */
+.bar-10 {width: 90%; height: 1vw; background-color: lightgreen;}
+.bar-9 {width: 80%; height: 1vw; background-color: green;}
+.bar-8 {width: 70%; height: 1vw; background-color: darkgreen;}
+.bar-7 {width: 60%; height: 1vw; background-color: yellow;}
+.bar-6 {width: 50%; height: 1vw; background-color: orange;}
+.bar-5 {width: 40%; height: 1vw; background-color: brown;}
+.bar-4 {width: 30%; height: 1vw; background-color: red;}
+.bar-3 {width: 20%; height: 1vw; background-color: pink;}
+.bar-2 {width: 10%; height: 1vw; background-color: deeppink;}
+.bar-1 {width: 5%; height: 1vw; background-color: rebeccapurple;}
+
+/* Responsive layout - make the columns stack on top of each other instead of next to each other */
+@media (max-width: 400px) 
+{
+    .side, .middle 
+    {
+        width: 100%;
+    }
+    .right 
+    {
+        display: none;
+    }
+}
+
+
+@media only screen and (max-width: 1000px) 
+{
+    .review_header
+    {
+        position: relative;
+        top: -180vw;
+        font-size: 4vw;
+        z-index: 1;
+        color: white;
+        font-family: Agency FB;
+        text-align: center;
+        text-decoration: overline;
+    }
+
+    .rating_box
+    {
+        position: absolute;
+        top: 940vw;
+        left: 5vw;
+        z-index: 1;
+        width: 90%;
+        padding: 1vw;
+        background: white;
+        font-family: calibri;
+        font-size: 2vw;
+    }
+
+    .rating_box01
+    {
+        position: absolute;
+        top: 990vw;
+        left: 5vw;
+        z-index: 1;
+        width: 90%;
+        padding: 1vw;
+        background: white;
+        font-family: calibri;
+        font-size: 2vw;
+    }
+
+    .rating_box02
+    {
+        position: absolute;
+        top: 1045vw;
+        left: 5vw;
+        z-index: 1;
+        width: 90%;
+        padding: 1vw;
+        background: white;
+        font-family: calibri;
+        font-size: 2vw;
+    }
+}
+
+.example-video-section
+{
+    position: absolute;
+    top: 240vw;
+    right: 5vw;
+}
+
+.example-video-section iframe
+{
+    width: 40vw;
+    height: 21vw;
+}
+
+.More_On_Mental_Health_text
+{
+    position: absolute;
+    left: -50vw;
+}
+
+
+/*Footer*/
+.marketing-site-footer {
+    position: relative;
+    top:100px;
+    background: #2c3840;
+    color: #8aa0ae;
+    padding: 2rem 0 0;
+}
+
+.marketing-site-footer .marketing-site-footer-menu-social a {
+    color: #fefefe;
+}
+
+.marketing-site-footer .column-block {
+    margin-bottom: 30px;
+}
+
+.marketing-site-footer > .row {
+    margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 39.9375em) {
+    .marketing-site-footer .columns {
+        margin-bottom: 2rem;
+    }
+}
+
+.marketing-site-footer-name {
+    color: #fefefe;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.marketing-site-footer-title {
+    color: #fefefe;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.marketing-site-footer-block {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.marketing-site-footer-block .fa {
+    font-size: 2rem;
+    color: #020304;
+}
+
+.marketing-site-footer-block p {
+    margin-left: 1rem;
+    line-height: 1.125rem;
+}
+
+.marketing-site-footer-bottom {
+    background: #020304;
+    padding: 1rem 0;
+}
+
+.marketing-site-footer-bottom p,
+.marketing-site-footer-bottom .menu {
+    margin-bottom: 0;
+}
+
+.marketing-site-footer-bottom .marketing-site-footer-bottom-links {
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+
+.marketing-site-footer-bottom .marketing-site-footer-bottom-links a {
+    color: #8aa0ae;
+}
+
+@media screen and (max-width: 63.9375em) {
+    .marketing-site-footer-bottom .marketing-site-footer-bottom-links {
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 63.9375em) {
+    .marketing-site-footer-bottom {
+        text-align: center;
+    }
+}
+
+/*IMPORTANT*/
+.padding_bars
+{
+    position: absolute;
+    top: 0vw;
+    left: -0.1vw;
+    transform:  scale(1);
+}
+
+@media screen and (max-width: 1000px) 
+{
+    .padding_bars
+    {
+        top: 0vw;
+        left: -0.1vw;
+        transform:  scale(1);
+    }      
+}
