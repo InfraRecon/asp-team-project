@@ -1,0 +1,339 @@
+var MazeGamePlotSketch = function(p) 
+{
+    // Global variables
+    var timePoints = [];
+    var levelPoints = [];
+    var tabPoints = [];
+    
+	var movingPlot, i;
+	var step = 0;
+	var stepsPerCycle = 100;
+	var lastStepTime = 0;
+	var clockwise = true;
+	var scale = 5;
+    
+    // Global variables
+	var table, periodPlot;
+	var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+	var daysPerMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+	var daysPerMonthLeapYear = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    
+    p.preload = function()
+    {
+        star = p.loadImage("star.png");    
+    }
+    
+	// Initial setup
+	p.setup = function() 
+    {
+		// Create the canvas
+		var canvas = p.createCanvas(860, 1700);
+		p.background(255,255);
+
+		// Prepare the points for the plot
+        var timeData = new setDataOnGraph(p,"MAZEGAMETIME",0,0);
+        var levelData = new setDataOnGraph(p,"MAZEGAMELEVEL",1,0);
+        var tabData = new setDataOnGraph(p,"MAZEGAMETAB",2,0);
+        
+        console.log(timeData);
+        console.log(levelData);
+        console.log(tabData);
+        
+		for (var i = 0; i < timeData.length; i++) 
+        {
+			timePoints[i] = new GPoint(i, p.round(timeData[i]));
+            levelPoints[i] = new GPoint(i, p.round(levelData[i]));
+            tabPoints[i] = new GPoint(i, p.round(tabData[i]));
+		}
+
+		// Create a new plot and set its position on the screen
+		var plot = new GPlot(p);
+		plot.setPos(0, 0);
+        
+		// Set the plot title and the axis labels
+		plot.setPoints(timePoints);
+		plot.getXAxis().setAxisLabelText("x axis");
+		plot.getYAxis().setAxisLabelText("y axis");
+		plot.setTitleText("Block Game Acheivements");
+        
+        plot.addLayer("layer 1", levelPoints);
+		plot.getLayer("layer 1").setLineColor(p.color(255, 150, 0));
+        
+        plot.addLayer("layer 2", tabPoints);
+		plot.getLayer("layer 2").setLineColor(p.color(150, 255, 0));
+        
+        // Draw it!
+		plot.defaultDraw();
+        /////////////////
+        /////////////////
+        
+        
+        // Create the canvas
+		var firstPlotPos = [0, 300];
+		var panelDim = [180, 180];
+		var margins = [60, 70, 40, 30];
+
+		// Create four plots to represent the 4 panels
+		var plot1 = new GPlot(p);
+		plot1.setPos(firstPlotPos);
+		plot1.setMar(0, margins[1], margins[2], 0);
+		plot1.setDim(panelDim);
+		plot1.setAxesOffset(0);
+		plot1.setTicksLength(-4);
+		plot1.getXAxis().setDrawTickLabels(false);
+
+		var plot2 = new GPlot(p);
+		plot2.setPos(firstPlotPos[0] + margins[1] + panelDim[0], firstPlotPos[1]);
+		plot2.setMar(0, 0, margins[2], margins[3]);
+		plot2.setDim(panelDim);
+		plot2.setAxesOffset(0);
+		plot2.setTicksLength(-4);
+		plot2.getXAxis().setDrawTickLabels(false);
+		plot2.getYAxis().setDrawTickLabels(false);
+
+		var plot3 = new GPlot(p);
+		plot3.setPos(firstPlotPos[0], firstPlotPos[1] + margins[2] + panelDim[1]);
+		plot3.setMar(margins[0], margins[1], 0, 0);
+		plot3.setDim(panelDim);
+		plot3.setAxesOffset(0);
+		plot3.setTicksLength(-4);
+
+
+		// Set the points, the title and the axis labels
+		plot1.setPoints(timePoints);
+		plot1.getYAxis().setAxisLabelText("cos(i)");
+		plot1.setTitleText("Block Game Multiple Plots");
+		plot1.getTitle().setRelativePos(1);
+		plot1.getTitle().setTextAlignment(p.CENTER);
+
+		plot2.setPoints(levelPoints);
+
+		plot3.setPoints(tabPoints);
+		plot3.getXAxis().setAxisLabelText("sin(i)");
+		plot3.getYAxis().setAxisLabelText("i");
+		plot3.setInvertedYScale(true);
+
+
+		// Draw the plots
+		plot1.beginDraw();
+		plot1.drawBox();
+		plot1.drawXAxis();
+		plot1.drawYAxis();
+		plot1.drawTopAxis();
+		plot1.drawRightAxis();
+		plot1.drawTitle();
+		plot1.drawPoints();
+		plot1.drawLines();
+		plot1.endDraw();
+
+		plot2.beginDraw();
+		plot2.drawBox();
+		plot2.drawXAxis();
+		plot2.drawYAxis();
+		plot2.drawTopAxis();
+		plot2.drawRightAxis();
+		plot2.drawPoints();
+		plot2.drawLines();
+		plot2.endDraw();
+
+		plot3.beginDraw();
+		plot3.drawBox();
+		plot3.drawXAxis();
+		plot3.drawYAxis();
+		plot3.drawTopAxis();
+		plot3.drawRightAxis();
+		plot3.drawPoints();
+		plot3.drawLines();
+		plot3.endDraw();
+        
+        
+        ////////////////////////
+        ////////////////////////
+        
+        // Prepare the first set of points
+		var nPoints1 = timePoints.length / 10;
+		var points1 = [];
+
+		for ( i = 0; i < timePoints.length; i++) 
+        {
+			points1[i] = calculatePoint(step, stepsPerCycle, scale);
+			step = (clockwise) ? step + 1 : step - 1;
+		}
+
+		lastStepTime = p.millis();
+
+		// Prepare the second set of points
+		var nPoints2 = timePoints.length + 1;
+		var points2 = [];
+
+		for ( i = 0; i < timePoints.length; i++) 
+        {
+			points2[i] = calculatePoint(i, stepsPerCycle, 0.9 * scale);
+		}
+
+		// Create the plot
+		movingPlot = new GPlot(p);
+		movingPlot.setPos(0, 800);
+		movingPlot.setDim(300, 300);
+		// or all in one go
+		// plot = new GPlot(p, 25, 25, 300, 300);
+
+		// Set the plot limits (this will fix them)
+		movingPlot.setXLim(-1.2 * scale, 1.2 * scale);
+		movingPlot.setYLim(-1.2 * scale, 1.2 * scale);
+
+		// Set the plot title and the axis labels
+		movingPlot.setTitleText("Clockwise movement");
+		movingPlot.getXAxis().setAxisLabelText("x axis");
+		movingPlot.getYAxis().setAxisLabelText("y axis");
+
+		// Activate the panning effect
+		movingPlot.activatePanning();
+
+		// Add the two set of points to the plot
+		movingPlot.setPoints(points1);
+		movingPlot.addLayer("surface", points2);
+
+		// Change the second layer line color
+        movingPlot.getLayer("surface").setLineColor(p.color(100, 255, 100));
+        
+        //////////////////////////
+        //////////////////////////
+        
+        // Create the plot
+		periodPlot = new GPlot(p);
+        periodPlot.setPos(0, 1200);
+		periodPlot.setDim(400, 300);
+		periodPlot.setTitleText("Game Stats");
+		periodPlot.getXAxis().setAxisLabelText("Level");
+		periodPlot.getYAxis().setAxisLabelText("Dots Collected");
+		periodPlot.getXAxis().setNTicks(10);
+		periodPlot.setPoints(timePoints.length);
+		periodPlot.setLineColor(p.color(0));
+        periodPlot.addLayer("Time", timePoints);
+		periodPlot.getLayer("Time").setLineColor(p.color(255, 100, 100,100));
+        
+		periodPlot.addLayer("Levels", levelPoints);
+        periodPlot.getLayer("Levels").setLineColor(p.color(255, 100, 255,100));
+        
+        periodPlot.addLayer("Tabs", tabPoints);
+        periodPlot.getLayer("Tabs").setLineColor(p.color(100, 255, 255,100));
+        
+		periodPlot.activatePointLabels();
+        
+        //////////
+        var x = 500;
+        var y = 80;
+        
+        p.createResolutionInfo("Maze Game | Summary:",x,y-30);
+        
+        p.createResolutionInfo("Times:",x,y);
+        p.createResolutionInfo(timeData,x,y + 20);
+        
+            p.createResolutionInfo("Total Time Played:",x + 20,y * 2);
+            p.createResolutionInfo(timeData[timeData.length-1],x + 20,y * 2 + 20);
+        
+        p.createResolutionInfo("Levels:",x,y * 3);
+        p.createResolutionInfo(levelData,x,y * 3 + 20);
+        
+            p.createResolutionInfo("Highest Level Reached:",x + 20,y * 4);
+            p.createResolutionInfo(levelData[levelData.length-1],x + 20,y * 4 + 20);
+        
+        p.createResolutionInfo("Dots Collected:",x,y * 5);
+        p.createResolutionInfo(tabData,x,y * 5 + 20);
+        
+            p.createResolutionInfo("Maximum Dots Collected:",x + 20,y * 6);
+            p.createResolutionInfo(tabData[tabData.length-1],x + 20,y * 6 + 20);
+	};
+    
+    // Execute the sketch
+	p.draw = function() 
+    {
+		// Draw the plot
+		movingPlot.beginDraw();
+		movingPlot.drawBackground();
+		movingPlot.drawBox();
+		movingPlot.drawXAxis();
+		movingPlot.drawYAxis();
+		movingPlot.drawTopAxis();
+		movingPlot.drawRightAxis();
+		movingPlot.drawTitle();
+		movingPlot.getMainLayer().drawPoints();
+		movingPlot.getLayer("surface").drawFilledContour(GPlot.HORIZONTAL, 0);
+		movingPlot.endDraw();
+
+		// Add and remove new points every 10th of a second
+		if (p.millis() - lastStepTime > 100) 
+        {
+			if (clockwise) 
+            {
+				// Add the point at the end of the array
+				movingPlot.addPoint(calculatePoint(step, stepsPerCycle, scale));
+				step++;
+
+				// Remove the first point
+				movingPlot.removePoint(0);
+			} 
+            else 
+            {
+				// Add the point at the beginning of the array
+				movingPlot.addPointAtIndexPos(0, calculatePoint(step, stepsPerCycle, scale));
+				step--;
+
+				// Remove the last point
+				movingPlot.removePoint(movingPlot.getPointsRef().length - 1);
+			}
+
+			lastStepTime = p.millis();
+		}
+        
+        ///////////////////
+        ///////////////////
+        
+        // Draw the plot
+		periodPlot.beginDraw();
+		periodPlot.drawBox();
+		periodPlot.drawXAxis();
+		periodPlot.drawYAxis();
+		periodPlot.drawTitle();
+		periodPlot.drawGridLines(GPlot.VERTICAL);
+		periodPlot.drawFilledContours(GPlot.HORIZONTAL, 0);
+		periodPlot.drawLegend(["Time Stamps", "Level", "Dots Collected"], [0.07, 0.32, 0.48], [0.95, 0.95, 0.95]);
+		periodPlot.drawLabels();
+		periodPlot.endDraw();
+	};
+
+	p.mouseClicked = function() 
+    {
+		if (movingPlot.isOverBox(p.mouseX, p.mouseY)) 
+        {
+			// Change the movement sense
+			clockwise = !clockwise;
+
+			if (clockwise) 
+            {
+				step += movingPlot.getPointsRef().length + 1;
+				movingPlot.setTitleText("Clockwise movement");
+			}
+            else 
+            {
+				step -= movingPlot.getPointsRef().length + 1;
+				movingPlot.setTitleText("Anti-clockwise movement");
+			}
+		}
+	};
+
+	function calculatePoint(i, n, rad) 
+    {
+		var delta = 0.1 * p.cos(p.TWO_PI * 10 * i / n);
+		var ang = p.TWO_PI * i / n;
+		return new GPoint(rad * (1 + delta) * p.sin(ang), rad * (1 + delta) * p.cos(ang));
+	}
+    
+    p.createResolutionInfo = function(textData,posX,posY)
+    {
+        p.fill(0);
+        console.log(textData);
+        p.text(textData,posX,posY);
+    }
+};
