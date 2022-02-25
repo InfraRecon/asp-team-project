@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>p5.js example</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+            <div class="startButton">
+            <button onclick="runSketch(numBubblesSketch);">Start / Reset
+            </button>
+        </div>
+    
+  <script src="../p5.js"></script>
+  <!-- <script src="../addons/p5.sound.js"></script> -->
+  <script src="particle_Gen.js"></script>
+  <script src="Divide_Attention.js"></script>
+    
+                
+         <div id="sketchContainer"></div>
+    
+            <script>
+                // This is the sketch launcher
+                var p5Sketch;
+
+                function runSketch(sketch) 
+                {
+                    if (typeof p5Sketch !== 'undefined') 
+                    {
+                        p5Sketch.remove();
+                    }
+
+                    p5Sketch = new p5(sketch, "sketchContainer");
+                }
+        </script>
+</head>
+
+<body>
+  <main>
+  </main>
+</body>
+
+</html>
