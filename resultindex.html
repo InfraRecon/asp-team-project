@@ -38,73 +38,110 @@
         <div class="white_header">   
             <div class="topnav" id="myTopnav">
                 <div class="top-bar-left">
-                <a href="#home">
-                    <img class="GameMaglogo" onclick="openNav()" src="Images/Mind-PNG-Picture.png" 
-                    alt="GameMagazineLogoImage">
-                </a>
-                <a href="#home">  
-                    <img class="FaceBooklogo" onclick="openNav()" src="Images/facebook-2661207_1280.jpg" 
-                    alt="GameMagazineLogoImage">
-                </a>
-                <a href="#home"> 
-                    <img class="Twitterlogo" onclick="openNav()" src="Images/twitter-social-icon-image-block-01-en-28may20.jpg" 
-                    alt="GameMagazineLogoImage">
-                </a>
-                <a href="index.html" class="active">Home</a>
+                    <div class="topnavgallerysection">
+                        <div class="topnavgallery">
+                            <a href="#home">  
+                                <img onclick="openNav()" src="Images/facebook-2661207_1280.jpg" 
+                                alt="GameMagazineLogoImage">
+                            </a>
+                        </div>
+                        <div class="topnavgallery">
+                            <a href="#home"> 
+                                <img onclick="openNav()" src="Images/twitter-social-icon-image-block-01-en-28may20.jpg" 
+                                alt="GameMagazineLogoImage">
+                            </a>
+                        </div>
+                        <div class="topnavgallery">
+                            <a href="#home">  
+                                <img onclick="openNav()" src="Images/580b57fcd9996e24bc43c521.png" 
+                                alt="GameMagazineLogoImage">
+                            </a>
+                        </div>
+                        <div class="topnavgallery">
+                            <a href="#home"> 
+                                <img onclick="openNav()" src="Images/1534129544.png" 
+                                alt="GameMagazineLogoImage">
+                            </a>
+                        </div>
+                    </div>
                 
+                <a class="mgtLogo">
+                    <img onclick="openNav()" src="Images/Mind-PNG-Picture.png" 
+                    alt="GameMagazineLogoImage">
+                </a>
+                    
+                <a href="index.html" class="active">
+                    <img class="home_button" src="Images/home Icon.png" 
+                    alt="GameMagazineLogoImage">Home
+                </a>
+                    
                 <div class="dropdown">
-                  <button class="dropbtn">Assessment Games</button>
-                  <div class="dropdown-content">
-                    <a href="pac-man.html">MAZE GAME</a>
-                    <a href="tetris.html">BLOCK GAME</a>
-                    <a href="numberBubbles.html">NUMBER BUBBLE GAME</a>
-                    <a href="wordScroll.html">WORD LISTEN GAME</a>
-                    <a href="numberGrid.html">NUMBER GRID GAME</a>
-                  </div>
+                    <button class="dropbtn">
+                                  <img class="game_button" src="Images/Video_game_controller_icon_designed_by_Maico_Amorim.svg.png" 
+                    alt="GameMagazineLogoImage">Assessment Games
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="pac-man.html">MAZE GAME</a>
+                        <a href="tetris.html">BLOCK GAME</a>
+                        <a href="numberBubbles.html">NUMBER BUBBLE GAME</a>
+                        <a href="wordScroll.html">WORD LISTEN GAME</a>
+                        <a href="numberGrid.html">NUMBER GRID GAME</a>
+                    </div>
                 </div> 
 
                 
-                <a href="mental-health.html" class="active">Mental Health</a>
-                <a href="about-us.html" class="active">About</a>
-                <a href="contact-us.html" class="active">Contact Info</a>
-                <a href="resultindex.html" class="active">My Results</a>
+                <a href="mental-health.html" class="active">
+                     <img class="home_button" src="Images/6881093_preview.png" 
+                    alt="GameMagazineLogoImage">Mental Health
+                </a>
+                <a href="about-us.html" class="active">                   
+                    <img class="home_button" src="Images/about-icons-png-7-Transparent-Images.png" 
+                    alt="GameMagazineLogoImage">About
+                </a>
+                <a href="contact-us.html" class="active">
+                    <img class="home_button" src="Images/contact.png" 
+                    alt="GameMagazineLogoImage">Contact Info
+                </a>
+                <a href="resultindex.html" class="active">
+                    <img class="home_button" src="Images/icon-testing-0.png" 
+                    alt="GameMagazineLogoImage">My Results</a>
                 </div>
             
                 <div class="top-bar-right">
                 <a href="#home">
-                    <img class="Profile_Image" onclick="openNav()" src="Images/Profile%20Image%2001%20.png" 
+                    <img class="Profile_Image" onclick="document.getElementById('idLogin').style.display='block'" src="Images/profile Image.png" 
                     alt="ProfileImage">
                 </a>
                 <div class="login_btn">
                     <button onclick="document.getElementById('idLogin').style.display='block'">
-                        LOGIN / SIGN UP
+                        LOGIN | SIGN UP
                     </button>
-                    <div id="idLogin" class="modal">
-                        <form class="modal-content animate" action="/action_page.php" method="post">
-                            <div class="imgcontainer">
-                                <span           onclick="document.getElementById('idLogin').style.display='none'" class="close" title="Close Modal">&times;
-                                </span>
-                                <img src="Images/384921a9a512810bae3c7970fafb83eb.gif" alt="Avatar" class="avatar">
-                            </div>
-                            <div class="container">
-                                <label id="uname"><b>Username</b></label>
-                                <input type="text" placeholder="Enter Username eg. Rick" name="uname" required>
+                </div>
+                <div id="idLogin" class="modal">
+                    <form class="modal-content animate" action="/action_page.php" method="post">
+                        <div class="imgcontainer">
+                            <span           onclick="document.getElementById('idLogin').style.display='none'" class="close" title="Close Modal">&times;
+                            </span>
+                            <img src="Images/profile Image.png" alt="Avatar" class="avatar">
+                        </div>
+                        <div class="container">
+                            <label id="uname"><b>Username</b></label>
+                            <input type="text" placeholder="Enter Username eg. Harley" name="uname" required>
 
-                                <!--PASSWORD SECTION-->   
-                                <label id="psw"><b>Password</b></label>
-                                <input type="password" placeholder="Enter Password eg. Sanchez" name="psw" required>
+                            <!--PASSWORD SECTION-->   
+                            <label id="psw"><b>Password</b></label>
+                            <input type="password" placeholder="Enter Password eg. Quinn" name="psw" required>
 
-                                <button class="loginBtn" type="submit">Login</button>
-                                <label>
-                                    <input type="checkbox" checked="checked" name="remember"> Remember me
-                                </label>
-                            </div>
-                            <div class="container">
-                                <button type="button" onclick="document.getElementById('idLogin').style.display='none'" class="cancelBtn">Cancel</button>
-                                <span class="psw">Forgot <a href="#">password?</a></span>
-                            </div>
-                        </form>
-                    </div>
+                            <button class="loginBtn" type="submit">Login</button>
+                            <label>
+                                <input type="checkbox" checked="checked" name="remember"> Remember me
+                            </label>
+                        </div>
+                        <div class="container">
+                            <button type="button" onclick="document.getElementById('idLogin').style.display='none'" class="cancelBtn">Cancel</button>
+                            <span class="psw">Forgot <a href="#">Forgot password?</a></span>
+                        </div>
+                    </form>
                 </div>
                     
                 <div class="dropdown01">
@@ -147,59 +184,44 @@
                 <div class="sidegallery">
 
                 <!--GAMES OF THE MONTH-->   
-                <h1>GAMES OF THE MONTH</h1>
-                <!--RATCHET AND CLANCK-->   
-                <a href="https://store.playstation.com/en-za/product/EP9000-PPSA01474_00-RATCHETCLANKRIFT">Ratchet and Clank: Rift Apart
-                </a>
-                <a>
+                <h1>FEATURES</h1>
+                <a href="resultindex.html">Check out Your Results
                     <div class="game_banner">
-                        <img src="Images/ps5-ratchet_clank-video-thumb-block-06-en-110620banner.jpg" alt="ratchet">
+                        <img src="Images/Analyze-png-aspx-compressor.png" alt="features">
                     </div>
                 </a>
-                <!--DOOM ETERNAL-->   
-                <a href="https://bethesda.net/en/game/doom">DOOM: ETERNAL - The Ancient Gods Part II
-                </a>
-                <a>
+                <a href="contact-us.html">Contact Us
                     <div class="game_banner">
-                        <img src="Images/doom-eternal-ancient-gods-2@2000x1270.jpg" alt="doom">
+                        <img src="Images/contact.png" alt="features">
                     </div>
                 </a>
-                <!--GENSHIN IMPACT-->   
-                <a href="https://genshin.mihoyo.com/en/news/detail/9368">Genshin Impact v1.4: Windblume
-                </a>
-                <a>
+                <a href="#Reviews">Check out Reviews
                     <div class="game_banner">
-                        <img src="Images/genshin_impact_invitation_of_windblume_event.jpg" alt="genshin">
+                        <img src="Images/features.png" alt="features">
                     </div>
                 </a>
-                <!--WARFRAME-->   
-                <a href="https://www.warframe.com/">Warframe</a>
-                    <a>
-                        <div class="game_banner">
-                            <img src="Images/warframe-digital-extremes@2000x1270.jpg" alt="warframe">
-                        </div>
-                    </a>
+                <a href="about-us.html">About The Team
+                    <div class="game_banner">
+                        <img src="Images/about-icons-png-7-Transparent-Images.png" alt="features">
+                    </div>
+                </a>
                 </div>
 
                 <!--IMAGE SIDE GALLERY-->   
                 <div class="sidegallery">
                     <h1>NEWS</h1>
-                    <a href="https://www.emberlab.com/">Kena: Bridge of Spirits</a>
-                    <a href="https://www.ea.com/news">EA</a>
-                    <a href="https://blog.playstation.com/">Playstation</a>
-                    <a href="https://www.xbox.com/en-ZA/xbox-game-pass">XBOX Game Pass</a>
+                    <a href="https://news.sky.com/story/video-games-that-diagnose-monitor-and-treat-depression-developed-by-scientists-12521681">Video games that diagnose, monitor and treat depression developed by scientists</a>
+                    <a href="https://www.studyfinds.org/violent-video-games-mental-health-myths-debunked/">5 Debunked Myths About Violent Video Games & Mental Health</a>
+                    <a href="https://www.bbc.com/future/article/20220127-why-adults-should-embrace-their-playfulness">Why playing games is good for you</a>
                 </div>
 
                 <!--COMMUNITY LINKS-->   
                 <div class="sidegallery">
                     <h1>COMMUNITY</h1>
-                    <a href="https://forums.warframe.com/forum/113-livestreams-contests/">Warframe Community</a>
-                    <a href="https://www.hoyolab.com/genshin/home/1">Genshin Impact Community</a>
                     <a href="https://www.youtube.com/">Youtube</a>
                     <a href="https://www.facebook.com/">Facebook</a>
                     <a href="https://twitter.com/?lang=en">Twitter</a>
                     <a href="https://www.instagram.com/">Instagram</a>
-                    <a href="https://discord.com/">Discord</a>
                 </div>
 
                 <!--ABOUT LINKS-->   
@@ -209,7 +231,7 @@
                     <p>Connect with us</p>
                     <div class="connectImagegallery">    
                         <a href="https://www.youtube.com/">
-                            <img src="Images/youtube-social-icon-01-18may18.png" alt="youtube">
+                            <img src="Images/youtube-logo-hd-8.png" alt="youtube">
                         </a>
                     </div>
 
@@ -227,22 +249,15 @@
 
                     <div class="connectImagegallery">
                         <a href="https://www.instagram.com/">
-                            <img src="Images/instagram-social-icon-image-block-03-en-28may20.jpg" alt="insta">
+                            <img src="Images/580b57fcd9996e24bc43c521.png" alt="insta">
                         </a>
                     </div>
 
                     <div class="connectImagegallery">
                         <a href="https://www.google.com/">
-                            <img src="Images/image-20150902-6700-t2axrz.webp" alt="google">
+                            <img src="Images/1534129544.png" alt="google">
                         </a>
                     </div>
-                </div>
-
-                <div class="sidegallery">
-                    <h1>SUPPORT</h1>
-                    <a href="supportindex.html">Service</a>
-                    <a href="supportindex.html">Help</a>
-                    <a href="supportindex.html">Manuals</a>
                 </div>
             </div>
         </div>
@@ -400,6 +415,9 @@
 	<!-- JavaScript files -->
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.10/p5.min.js"></script>
+    <script
+		src="JavaScript/p5.js%20Libraries/p5.dom.min.js">
+    </script>
     <script src="JavaScript/Read-WriteToJSON%20Test%20File/compileData.js"></script>
 	<script src="JavaScript/Data Visualization/lib/grafica.min.js"></script>
 	<script src="JavaScript/Data Visualization/examples/MazeGamePlotSketch.js"></script>
@@ -490,7 +508,5 @@
     </div>
   </div>
 </footer>
-    <!--    JAVASCRIPT-->
-    <script src="JavaScript/javaindex.js"></script>
 </body>
 </html>

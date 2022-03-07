@@ -3,7 +3,7 @@
 
 <!-- This head section contains all the invisible information about the page -->
 <head>
-    <title> MGT </title>
+    <title> Home | Mental Health Foundation </title>
     <meta charset="utf-8">
     <meta name="description" content="This Websites Tests Users With The Medium Of Gaming">
     <meta name="author" content="Roberto | Dinesh | Kai | Cristian | Juan">
@@ -38,93 +38,110 @@
         <div class="white_header">   
             <div class="topnav" id="myTopnav">
                 <div class="top-bar-left">
-                <a href="#home">
-                    <img class="GameMaglogo" onclick="openNav()" src="Images/Mind-PNG-Picture.png" 
+                    <div class="topnavgallerysection">
+                        <div class="topnavgallery">
+                            <a href="#home">  
+                                <img onclick="openNav()" src="Images/facebook-2661207_1280.jpg" 
+                                alt="GameMagazineLogoImage">
+                            </a>
+                        </div>
+                        <div class="topnavgallery">
+                            <a href="#home"> 
+                                <img onclick="openNav()" src="Images/twitter-social-icon-image-block-01-en-28may20.jpg" 
+                                alt="GameMagazineLogoImage">
+                            </a>
+                        </div>
+                        <div class="topnavgallery">
+                            <a href="#home">  
+                                <img onclick="openNav()" src="Images/580b57fcd9996e24bc43c521.png" 
+                                alt="GameMagazineLogoImage">
+                            </a>
+                        </div>
+                        <div class="topnavgallery">
+                            <a href="#home"> 
+                                <img onclick="openNav()" src="Images/1534129544.png" 
+                                alt="GameMagazineLogoImage">
+                            </a>
+                        </div>
+                    </div>
+                
+                <a class="mgtLogo">
+                    <img onclick="openNav()" src="Images/Mind-PNG-Picture.png" 
                     alt="GameMagazineLogoImage">
                 </a>
                     
-                <div class="topnavgallerysection">
-                    <div class="topnavgallery">
-                        <a href="#home">  
-                            <img onclick="openNav()" src="Images/facebook-2661207_1280.jpg" 
-                            alt="GameMagazineLogoImage">
-                        </a>
-                    </div>
-                    <div class="topnavgallery">
-                        <a href="#home"> 
-                            <img onclick="openNav()" src="Images/twitter-social-icon-image-block-01-en-28may20.jpg" 
-                            alt="GameMagazineLogoImage">
-                        </a>
-                    </div>
-                    <div class="topnavgallery">
-                        <a href="#home">  
-                            <img onclick="openNav()" src="Images/580b57fcd9996e24bc43c521.png" 
-                            alt="GameMagazineLogoImage">
-                        </a>
-                    </div>
-                    <div class="topnavgallery">
-                        <a href="#home"> 
-                            <img onclick="openNav()" src="Images/1534129544.png" 
-                            alt="GameMagazineLogoImage">
-                        </a>
-                    </div>
-                </div>
+                <a href="index.html" class="active">
+                    <img class="home_button" src="Images/home Icon.png" 
+                    alt="GameMagazineLogoImage">Home
+                </a>
                     
-                <a href="index.html" class="active">Home</a>
-                
                 <div class="dropdown">
-                  <button class="dropbtn">Assessment Games</button>
-                 <div class="dropdown-content">
-                    <a href="pac-man.html">MAZE GAME</a>
-                    <a href="tetris.html">BLOCK GAME</a>
-                    <a href="numberBubbles.html">NUMBER BUBBLE GAME</a>
-                    <a href="wordScroll.html">WORD LISTEN GAME</a>
-                    <a href="numberGrid.html">NUMBER GRID GAME</a>
-                  </div>
+                    <button class="dropbtn">
+                                  <img class="game_button" src="Images/Video_game_controller_icon_designed_by_Maico_Amorim.svg.png" 
+                    alt="GameMagazineLogoImage">Assessment Games
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="pac-man.html">MAZE GAME</a>
+                        <a href="tetris.html">BLOCK GAME</a>
+                        <a href="numberBubbles.html">NUMBER BUBBLE GAME</a>
+                        <a href="wordScroll.html">WORD LISTEN GAME</a>
+                        <a href="numberGrid.html">NUMBER GRID GAME</a>
+                    </div>
                 </div> 
 
                 
-                <a href="mental-health.html" class="active">Mental Health</a>
-                <a href="about-us.html" class="active">About</a>
-                <a href="contact-us.html" class="active">Contact Info</a>
-                <a href="resultindex.html" class="active">My Results</a>
+                <a href="mental-health.html" class="active">
+                     <img class="home_button" src="Images/6881093_preview.png" 
+                    alt="GameMagazineLogoImage">Mental Health
+                </a>
+                <a href="about-us.html" class="active">                   
+                    <img class="home_button" src="Images/about-icons-png-7-Transparent-Images.png" 
+                    alt="GameMagazineLogoImage">About
+                </a>
+                <a href="contact-us.html" class="active">
+                    <img class="home_button" src="Images/contact.png" 
+                    alt="GameMagazineLogoImage">Contact Info
+                </a>
+                <a href="resultindex.html" class="active">
+                    <img class="home_button" src="Images/icon-testing-0.png" 
+                    alt="GameMagazineLogoImage">My Results</a>
                 </div>
             
                 <div class="top-bar-right">
                 <a href="#home">
-                    <img class="Profile_Image" onclick="openNav()" src="Images/Profile%20Image%2001%20.png" 
+                    <img class="Profile_Image" onclick="document.getElementById('idLogin').style.display='block'" src="Images/profile Image.png" 
                     alt="ProfileImage">
                 </a>
                 <div class="login_btn">
                     <button onclick="document.getElementById('idLogin').style.display='block'">
-                        LOGIN / SIGN UP
+                        LOGIN | SIGN UP
                     </button>
-                    <div id="idLogin" class="modal">
-                        <form class="modal-content animate" action="/action_page.php" method="post">
-                            <div class="imgcontainer">
-                                <span           onclick="document.getElementById('idLogin').style.display='none'" class="close" title="Close Modal">&times;
-                                </span>
-                                <img src="Images/384921a9a512810bae3c7970fafb83eb.gif" alt="Avatar" class="avatar">
-                            </div>
-                            <div class="container">
-                                <label id="uname"><b>Username</b></label>
-                                <input type="text" placeholder="Enter Username eg. Rick" name="uname" required>
+                </div>
+                <div id="idLogin" class="modal">
+                    <form class="modal-content animate" action="/action_page.php" method="post">
+                        <div class="imgcontainer">
+                            <span           onclick="document.getElementById('idLogin').style.display='none'" class="close" title="Close Modal">&times;
+                            </span>
+                            <img src="Images/profile Image.png" alt="Avatar" class="avatar">
+                        </div>
+                        <div class="container">
+                            <label id="uname"><b>Username</b></label>
+                            <input type="text" placeholder="Enter Username eg. Harley" name="uname" required>
 
-                                <!--PASSWORD SECTION-->   
-                                <label id="psw"><b>Password</b></label>
-                                <input type="password" placeholder="Enter Password eg. Sanchez" name="psw" required>
+                            <!--PASSWORD SECTION-->   
+                            <label id="psw"><b>Password</b></label>
+                            <input type="password" placeholder="Enter Password eg. Quinn" name="psw" required>
 
-                                <button class="loginBtn" type="submit">Login</button>
-                                <label>
-                                    <input type="checkbox" checked="checked" name="remember"> Remember me
-                                </label>
-                            </div>
-                            <div class="container">
-                                <button type="button" onclick="document.getElementById('idLogin').style.display='none'" class="cancelBtn">Cancel</button>
-                                <span class="psw">Forgot <a href="#">password?</a></span>
-                            </div>
-                        </form>
-                    </div>
+                            <button class="loginBtn" type="submit">Login</button>
+                            <label>
+                                <input type="checkbox" checked="checked" name="remember"> Remember me
+                            </label>
+                        </div>
+                        <div class="container">
+                            <button type="button" onclick="document.getElementById('idLogin').style.display='none'" class="cancelBtn">Cancel</button>
+                            <span class="psw">Forgot <a href="#">Forgot password?</a></span>
+                        </div>
+                    </form>
                 </div>
                     
                 <div class="dropdown01">
@@ -168,37 +185,26 @@
 
                 <!--GAMES OF THE MONTH-->   
                 <h1>FEATURES</h1>
-                <!--RATCHET AND CLANCK-->   
-                <a href="https://store.playstation.com/en-za/product/EP9000-PPSA01474_00-RATCHETCLANKRIFT">Check out Your Results
-                </a>
-                <a>
+                <a href="resultindex.html">Check out Your Results
                     <div class="game_banner">
-                        <img src="Images/Analyze-png-aspx-compressor.png" alt="ratchet">
+                        <img src="Images/Analyze-png-aspx-compressor.png" alt="features">
                     </div>
                 </a>
-                <!--DOOM ETERNAL-->   
-                <a href="https://bethesda.net/en/game/doom">DOOM: ETERNAL - The Ancient Gods Part II
-                </a>
-                <a>
+                <a href="contact-us.html">Contact Us
                     <div class="game_banner">
-                        <img src="Images/doom-eternal-ancient-gods-2@2000x1270.jpg" alt="doom">
+                        <img src="Images/contact.png" alt="features">
                     </div>
                 </a>
-                <!--GENSHIN IMPACT-->   
-                <a href="https://genshin.mihoyo.com/en/news/detail/9368">Genshin Impact v1.4: Windblume
-                </a>
-                <a>
+                <a href="#Reviews">Check out Reviews
                     <div class="game_banner">
-                        <img src="Images/genshin_impact_invitation_of_windblume_event.jpg" alt="genshin">
+                        <img src="Images/features.png" alt="features">
                     </div>
                 </a>
-                <!--WARFRAME-->   
-                <a href="https://www.warframe.com/">Warframe</a>
-                    <a>
-                        <div class="game_banner">
-                            <img src="Images/warframe-digital-extremes@2000x1270.jpg" alt="warframe">
-                        </div>
-                    </a>
+                <a href="about-us.html">About The Team
+                    <div class="game_banner">
+                        <img src="Images/about-icons-png-7-Transparent-Images.png" alt="features">
+                    </div>
+                </a>
                 </div>
 
                 <!--IMAGE SIDE GALLERY-->   
@@ -253,13 +259,6 @@
                         </a>
                     </div>
                 </div>
-
-                <div class="sidegallery">
-                    <h1>SUPPORT</h1>
-                    <a href="supportindex.html">Service</a>
-                    <a href="supportindex.html">Help</a>
-                    <a href="supportindex.html">Manuals</a>
-                </div>
             </div>
         </div>
 
@@ -275,82 +274,63 @@
 <!--PADDING FOR CONTENT-->
 <div class="padding_bars">
     <section> 
-        <div class="slideshow-container">
+        <div class="main_slideshow-container">
 
         <!--SLIDE CYBERBUNK-->
         <div class="mySlides fade">
-            <div class="numbertext">1 / 10</div>
+            <div class="numbertext">1 / 4</div>
             <img src="Images/pexels-photo-3768140.jpg" alt="punk">
             <div class="Block_Gradient"></div>
             <div class="text" >
-            <img src="Images/Mind-PNG-Picture.png" alt="Cyberjunkimage">  
+            <img src="Images/Mind-PNG-Picture.png" alt="stock">  
             </div>
             <h1 class="textHeader">
                 Support for Students and Elderly
             </h1>
             <div class="text01">We support the grand spectrum of people specialising in Student and Elderly support</div>
-            <div>
-                <button class="textButton" onclick="document.location='https://www.cyberpunk.net'">
-                    Learn More
-                </button>
-            </div>
         </div>
             
         <!--SLIDE TLOF-->
         <div class="mySlides fade">
-            <div class="numbertext">2 / 10</div>
+            <div class="numbertext">2 / 4</div>
             <img src="Images/pexels-andrea-piacquadio-3823542.jpg" alt="thumb">
             <div class="Block_Gradient"></div>
             <div class="text" >
-            <img src="Images/Mind-PNG-Picture.png" alt="TLOF2image">  
+            <img src="Images/Mind-PNG-Picture.png" alt="stock">  
             </div>
             <h1 class="textHeader">
                 Available for Mobile and Desktop
             </h1>
-            <div class="text01">We support the grand spectrum of people specialising in Student and Elderly support</div>
-            <div>
-                <button class="textButton" onclick="document.location='https://www.playstation.com/en-us/games/the-last-of-us-part-ii/'">
-                    Learn More
-                </button>
-            </div>
+            <div class="text01">Optimized for the latest browsers Firefox, Chrome, Microsoft Edge</div>
+
         </div>
 
         <!--SLIDE READ DEAD-->
         <div class="mySlides fade">
-            <div class="numbertext">3 / 10</div>
+            <div class="numbertext">3 / 4</div>
             <img src="Images/pexels-andrea-piacquadio-3783250.jpg" alt="red">
             <div class="Block_Gradient"></div>
             <div class="text" >
-            <img src="Images/Mind-PNG-Picture.png" alt="RedDead2image">  
+            <img src="Images/Mind-PNG-Picture.png" alt="stock">  
             </div>
             <h1 class="textHeader">
                 Easy and Accessible
             </h1>
-            <div class="text01">We support the grand spectrum of people specialising in Student and Elderly support</div>
-            <div>
-                <button class="textButton" onclick="document.location='https://www.rockstargames.com/reddeadredemption2/'">
-                    Learn More
-                </button>
-            </div>
+            <div class="text01">Simple,Easy to navigate and Responsive, Designed to be easy on the eyes</div>
         </div>
             
         <!--SLIDE SPIDERMAN-->
         <div class="mySlides fade">
-            <div class="numbertext">4 / 10</div>
+            <div class="numbertext">4 / 4</div>
             <img src="Images/pexels-canva-studio-3153198.jpg" alt="gran">
             <div class="Block_Gradient"></div>
             <div class="text" >
-            <img src="Images/Mind-PNG-Picture.png" alt="GranT7image">  
+            <img src="Images/Mind-PNG-Picture.png" alt="stock">  
             </div>
             <h1 class="textHeader">
                 Instant Results
             </h1>
-            <div class="text01">We support the grand spectrum of people specialising in Student and Elderly support</div>
-            <div>       
-                <button class="textButton" onclick="document.location='https://www.playstation.com/en-gb/games/gran-turismo-7/'">
-                    Learn More
-                </button>
-            </div>
+            <div class="text01">Play games and get instant performance results support</div>
         </div>
             
 <!--
@@ -377,39 +357,38 @@
     <section>
         <div class="marketing-site-features">
             <div class="marketing-site-features-grad">
-              <h2 class="marketing-site-features-headline">Yeti Approved Features
+              <h2 class="marketing-site-features-headline">Features at a Glance
                 </h2>
               <p class="marketing-site-features-subheadline subheader">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit quaerat eos
-                words and phrases.
+                Our Support and Features
               </p>
               <div class="row">
                 <div class="small-12 medium-3 columns">
-                  <i class="fa fa-snowflake-o" aria-hidden="true"></i>
-                  <h4 class="marketing-site-features-title">Special Snowflake</h4>
+                  <h4 class="marketing-site-features-title">Support for Students and Elderly</h4>
                   <p class="marketing-site-features-desc">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    We support the grand spectrum of people specialising in Student and Elderly support
                   </p>
                 </div>
                 <div class="small-12 medium-3 columns">
-                  <i class="fa fa-angellist" aria-hidden="true"></i>
-                  <h4 class="marketing-site-features-title">Friendly Forms</h4>
+
+                  <h4 class="marketing-site-features-title">Available for Mobile and Desktop</h4>
                   <p class="marketing-site-features-desc">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Optimized for the latest browsers Firefox, Chrome, Microsoft Edge
                   </p>
                 </div>
                 <div class="small-12 medium-3 columns">
-                  <i class="fa fa-bullseye" aria-hidden="true"></i>
-                  <h4 class="marketing-site-features-title">Special Snowflake</h4>
+                  <h4 class="marketing-site-features-title">Easy and Accessible</h4>
                   <p class="marketing-site-features-desc">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Simple,Easy to navigate and Responsive, Designed to be easy on the eyes
                   </p>
                 </div>
                 <div class="small-12 medium-3 columns">
-                  <i class="fa fa-battery-full" aria-hidden="true"></i>
-                  <h4 class="marketing-site-features-title">Lithium Ion</h4>
+                  <h4 class="marketing-site-features-title">Instant Results</h4>
                   <p class="marketing-site-features-desc">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Play games and get instant performance results
+                  </p>
+                  <p>
+                    Check out my results for more
                   </p>
                 </div>
               </div>
@@ -425,22 +404,43 @@
         <div class="Assessment_Content">
         <div class="row_medium-8_large-7_columns">
             <h1 class="Game_Assessment">
-                Learn About Assessment
+                Trending Assessments
             </h1>
             <!-- We can now combine rows and columns when there's only one column in that row -->
               <div class="blog-post">
                 <div class="row">
                   <div class="small-12 medium-8 columns">
                     <h4 class="separator-left">MIND MAZE</h4>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
                     <p>
-                      Maze helps with pattern recognition and concentration while at the same time been fun and engaging.
-                      <br>
+                    Maze helps with pattern recognition and concentration.
+                    <br>
+                    </p>       
+                    <p>
+                    | Divide Attention: The ability to pay attention to multiple objects
+                    </p>
+                    <p>
+                      | Hand-eye coordination: The ability to use both hands and eyes
+                    </p>
+                    <p>
+                    | Processing Speed: Amount of time to complete a task
+                    </p>
+                    <p>
+                      | Shifting: The ability to adapt to situations
                     </p>
                   </div>
                   <div class="small-12 medium-4 columns">
                     <div class="author-image">
-                      <img
-                        src="Images/maxresdefault%20(2).jpg">
+                        <a href="pac-man.html">
+                            <img src="Images/maxresdefault%20(2).jpg">
+                        </a>
+                        <a href="pac-man.html">
+                            <img src="Images/next-button-icon-19.png">
+                        </a>
                     </div>
                   </div>
                 </div>
@@ -448,15 +448,34 @@
                 <div class="row">
                   <div class="small-12 medium-8 columns">
                     <h4 class="separator-left">GRID BLOCKS</h4>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
                     <p>
                       Maze helps with pattern recognition and concentration while at the same time been fun and engaging.
                       <br>
                     </p>
+                    <p>
+                    | Divide Attention: The ability to pay attention to multiple objects
+                    </p>
+                    <p>
+                      | Hand-eye coordination: The ability to use both hands and eyes
+                    </p>
+                    <p>
+                    | Processing Speed: Amount of time to complete a task
+                    </p>
                   </div>
                   <div class="small-12 medium-4 columns">
                     <div class="author-image">
-                      <img
-                        src="Images/background-1086706_1280.jpg">
+                        <a href="tetris.html">
+                            <img
+                            src="Images/background-1086706_1280.jpg">
+                        </a>
+                        <a href="tetris.html">
+                            <img src="Images/next-button-icon-19.png">
+                        </a>
                     </div>
                   </div>
                 </div>
@@ -464,15 +483,37 @@
                 <div class="row">
                   <div class="small-12 medium-8 columns">
                     <h4 class="separator-left">NUMBER GRID</h4>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
                     <p>
                       Maze helps with pattern recognition and concentration while at the same time been fun and engaging.
                       <br>
                     </p>
+                    <p>
+                    | Divide Attention: The ability to pay attention to multiple objects
+                    </p>
+                    <p>
+                      | Hand-eye coordination: The ability to use both hands and eyes
+                    </p>
+                    <p>
+                    | Processing Speed: Amount of time to complete a task
+                    </p>
+                    <p>
+                      | Visual Short Memory: The ability to retain a small amount of visual information
+                    </p>
                   </div>
                   <div class="small-12 medium-4 columns">
                     <div class="author-image">
-                      <img
-                        src="Images/images.jpg">
+                        <a href="numberGrid.html">
+                            <img
+                            src="Images/images.jpg">
+                        </a>
+                        <a href="numberGrid.html">
+                            <img src="Images/next-button-icon-19.png">
+                        </a>
                     </div>
                   </div>
                 </div>
@@ -480,15 +521,37 @@
                 <div class="row">
                   <div class="small-12 medium-8 columns">
                     <h4 class="separator-left">NUMBER BUBBLES</h4>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
                     <p>
                       Maze helps with pattern recognition and concentration while at the same time been fun and engaging.
                       <br>
                     </p>
+                    <p>
+                    | Divide Attention: The ability to pay attention to multiple objects
+                    </p>
+                    <p>
+                      | Hand-eye coordination: The ability to use both hands and eyes
+                    </p>
+                    <p>
+                    | Processing Speed: Amount of time to complete a task
+                    </p>
+                    <p>
+                      | Working Memory: The ability to retain and manipulate information
+                    </p>
                   </div>
                   <div class="small-12 medium-4 columns">
                     <div class="author-image">
-                      <img
-                        src="Images/colorful-1780368_640.png">
+                        <a href="numberBubbles.html">
+                            <img
+                            src="Images/colorful-1780368_640.png">
+                        </a>
+                        <a href="numberBubbles.html">
+                            <img src="Images/next-button-icon-19.png">
+                        </a>
                     </div>
                   </div>
                 </div>
@@ -496,15 +559,37 @@
                 <div class="row">
                   <div class="small-12 medium-8 columns">
                     <h4 class="separator-left">WORD FLOW</h4>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
                     <p>
                       Maze helps with pattern recognition and concentration while at the same time been fun and engaging.
                       <br>
                     </p>
+                    <p>
+                    | Divide Attention: The ability to pay attention to multiple objects
+                    </p>
+                    <p>
+                      | Hand-eye coordination: The ability to use both hands and eyes
+                    </p>
+                    <p>
+                    | Processing Speed: Amount of time to complete a task
+                    </p>
+                    <p>
+                      | Naming: The ability to name things
+                    </p>
                   </div>
                   <div class="small-12 medium-4 columns">
                     <div class="author-image">
-                      <img
-                        src="Images/maxresdefault%20(2).jpg">
+                        <a href="wordScroll.html">
+                          <img
+                            src="Images/maxresdefault%20(2).jpg">
+                        </a>
+                        <a href="wordScroll.html">
+                            <img src="Images/next-button-icon-19.png">
+                        </a>
                     </div>
                   </div>
                 </div>
@@ -523,34 +608,30 @@
             <div class="marketing-site-features-grad">
               <h2 class="marketing-site-features-headline"> Features
                 </h2>
-              <p class="marketing-site-features-subheadline subheader">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit quaerat eos
-                words and phrases.
-              </p>
               <div class="row">
                 <div class="gallery">
-                    <a target="_blank" href="https://store.playstation.com/en-za/product/EP9000-CUSA04943_00-GRAVITYRUSH20000">
+                    <a target="_blank" href="resultindex.html">
                     <img src="Images/Analyze-png-aspx-compressor.png" alt="Cinque Terre">Get Results
                     </a>
                 </div>
                 <div class="gallery">
-                    <a target="_blank" href="https://www.bandainamcoent.com/games/dragon-ball-z-kakarot">
+                    <a target="_blank" href="contact-us.html">
                     <img src="Images/email-icon-for-resume-12.png" alt="Forest">Contact Us
                     </a>
                 </div>
                 <div class="gallery">
-                    <a target="_blank" href="https://www.callofduty.com/blackopscoldwar/buy">
+                    <a target="_blank" href="about-us.html">
                     <img src="Images/help-question-mark-icon-13.png" alt="Northern Lights">About
                     </a>
                 </div>
                 <div class="gallery">
-                    <a target="_blank" href="https://www.playstation.com/en-za/games/marvels-spider-man-miles-morales/">
+                    <a target="_blank" href="mental-health.html">
                     <img src="Images/learn-more-button-300x300.png" alt="Cinque Terre"> Learn More
                     </a>
                 </div>
                 <div class="gallery">
-                    <a target="_blank" href="https://www.playstation.com/en-za/games/marvels-spider-man-miles-morales/">
-                    <img src="Images/ocala-review-button.png" alt="Cinque Terre"> Review
+                    <a target="_blank" href="#Reviews">
+                    <img src="Images/features.png" alt="Cinque Terre"> Review
                     </a>
                 </div>
               </div>
@@ -605,18 +686,21 @@
     
     <section>
         <div class="marketing-site-features03">
-            <div class="marketing-site-features-grad">
-              <h2 class="marketing-site-features-headline"> Comments
+            <div id="Reviews" class="marketing-site-features-grad02">
+              <h2 class="marketing-site-features-headline"> Reviews & Comments
                 </h2>
-              <p class="marketing-site-features-subheadline subheader">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit quaerat eos
-                words and phrases.
-              </p>
-              <div class="row">
+              <div class="marketing-site-features-subheadline subheader">
+                <div class="dot_collection01" style="text-align:center">
+                    <span class="dot01" onclick="currentSlide1(1)"></span> 
+                    <span class="dot01" onclick="currentSlide1(2)"></span>  
+                </div>
+              </div>
+                
             <div class="slideshow-container01">
                 <!--SLIDE-->
                 <div class="mySlides1 fade01">
-                    <div class="galleryNew">
+                  <div class="row">
+                    <div class="gallery03">
                         <div class="rating_box">
                             <span class="heading">Great Site</span>
                             <span class="fa fa-star checked"></span>
@@ -648,11 +732,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!--SLIDE-->
-                <div class="mySlides1 fade01">
-                    <div class="galleryNew">
+                    <div class="gallery03">
                         <div class="rating_box">
                             <span class="heading">My Review Title</span>
                             <span class="fa fa-star checked"></span>
@@ -684,24 +764,148 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            
-                <a class="prev01" onclick="plusSlides1(-1)">&#10094;</a>
-                <a class="next01" onclick="plusSlides1(1)">&#10095;</a>
+                    <div class="gallery03">
+                        <div class="rating_box">
+                              <span class="heading">It's fine</span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <p>I blame spongbob</p>
+                            <hr style="border:3px solid #f1f1f1">
 
-                </div>
-                <br>
+                            <div class="Reviews">
+                                <div>
+                                    <img alt="Image about a place for a family vacation"
+                                    src="Images/old_squidward.jpg"
+                                    width = 100px height= "100px">
 
-                <div class="dot_collection01" style="text-align:center">
-                    <span class="dot01" onclick="currentSlide1(1)"></span> 
-                    <span class="dot01" onclick="currentSlide1(2)"></span>  
-                    <span class="dot01" onclick="currentSlide1(3)"></span> 
-                    <span class="dot01" onclick="currentSlide1(4)"></span> 
-                    <span class="dot01" onclick="currentSlide1(5)"></span> 
+                                    <img
+                                    alt="Google's icon"
+                                    src="Images/1534129544.png"
+                                    width = 20px height= "20px">
+                                </div>
+                                <div>
+                                    Old-man Squid
+                                </div>
+
+                                <div>
+                                    My life has been full of that bone head spongebob, luckily this app proves that I'm still sane, for now...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <br />
             </div>
+            <div class="mySlides1 fade01">
+                  <div class="row">
+                    <div class="gallery03">
+                        <div class="rating_box">
+                            <span class="heading">Nice Site</span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <p>Mordecai's recommendation</p>
+                            <hr style="border:3px solid #f1f1f1">
+
+                            <div class="Reviews">
+                                <div>
+                                    <img alt="Image about a place for a family vacation"
+                                    src="Images/party benson.jpg"
+                                    width = 100px height= "100px">
+
+                                    <img
+                                    alt="Google's icon"
+                                    src="Images/1534129544.png"
+                                    width = 20px height= "20px">
+                                </div>
+                                <div>
+                                    Benson
+                                </div>
+
+                                <div>
+                                    Super sweet site, usually I'm angry at those Idiots Mordecai and Rigby, after using this site I feel better and ready to take on lifes problems.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery03">
+                        <div class="rating_box">
+                            <span class="heading">Awesome</span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <p>for My HighSchool Diploma</p>
+                            <hr style="border:3px solid #f1f1f1">
+
+                            <div class="Reviews">
+                                <div>
+                                    <img alt="Image about a place for a family vacation"
+                                    src="Images/eb907844-2bcf-4ca3-8f3a-581dddfeb06a_screenshot.jpg"
+                                    width = 100px height= "100px">
+
+                                    <img
+                                    alt="Google's icon"
+                                    src="Images/1534129544.png"
+                                    width = 20px height= "20px">
+                                </div>
+                                <div>
+                                    Trashboat
+                                </div>
+
+                                <div>
+                                    Been using this to improve my brain, so I can get my HIGH SCHOOL DIPLOMA! WOOOO. Seroiusly though cool site 5 stars.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery03">
+                        <div class="rating_box">
+                            <span class="heading">My Review</span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <p>A superficial app beneficial to the continous aid of humanity</p>
+                            <hr style="border:3px solid #f1f1f1">
+
+                            <div class="Reviews">
+                                <div>
+                                    <img alt="Image about a place for a family vacation"
+                                    src="Images/27bd15835ca9bde7473df37e02b3865e.png"
+                                    width = 100px height= "100px">
+
+                                    <img
+                                    alt="Google's icon"
+                                    src="Images/1534129544.png"
+                                    width = 20px height= "20px">
+                                </div>
+                                <div>
+                                    Gumball Waterson
+                                </div>
+
+                                <div>
+                                    Nice app, 5 stars.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+                
+            <a class="prev01" onclick="plusSlides1(-1)">&#10094;</a>
+            <a class="next01" onclick="plusSlides1(1)">&#10095;</a>
+
+            <br>
+          </div>
+          <br />
         </div>
     </section>
 <!--/////////////////////////////////////////////////////////////////////////////////-->
