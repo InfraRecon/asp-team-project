@@ -1,3 +1,39 @@
+/*
+Skip to content
+Pull requests
+Issues
+Marketplace
+Explore
+@InfraRecon
+HoangTran0410 /
+p5js-playground
+Public
+
+1
+5
+
+    1
+
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+
+    Insights
+
+p5js-playground/2019/maze/maze.js /
+@HoangTran0410
+HoangTran0410 [Refactor] sort project by year
+Latest commit 119bace on Mar 19
+History
+1 contributor
+549 lines (460 sloc) 11.1 KB
+Modified by Roberto Bliaja
+*/
+
 var mazeSketch = function(p){
     var cols, rows, w;
     var stack = [];

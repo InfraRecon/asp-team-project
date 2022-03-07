@@ -98,6 +98,8 @@ var numBubblesSketch = function(p)
         }
         
         p.timeClock(times);
+        
+        p.loop();
     }
 
     p.mouseClicked = function() 

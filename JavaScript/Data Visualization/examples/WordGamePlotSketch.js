@@ -5,6 +5,10 @@ var WordGamePlotSketch = function(p)
     var wordsRightPoints = [];
     var wordsWrongPoints = [];
     
+    var timeData;
+    var rightData;
+    var wrongData;
+    
 	var movingPlot, i;
 	var step = 0;
 	var stepsPerCycle = 100;
@@ -14,26 +18,97 @@ var WordGamePlotSketch = function(p)
     
     // Global variables
 	var table, periodPlot;
-	var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-	var daysPerMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-	var daysPerMonthLeapYear = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+    var canvas;
+    var saveIcon;
+    var buttonType = "saveButton"
+    var x = 400;
+    var y = 10;
+    var xSize = 50;
+    var ySize = 50;
     
-    p.preload = function()
+        
+    p.preload = function() 
     {
-        star = p.loadImage("star.png");    
+        saveIcon = p.loadImage("174314.png");
     }
-    
 	// Initial setup
 	p.setup = function() 
     {
-		// Create the canvas
-		var canvas = p.createCanvas(860, 1700);
+        p.graphSetup();
+
+        p.textData();
+        
+        var saveImage = p.image(saveIcon,x,y,xSize,ySize);
+	};
+    
+    // Execute the sketch
+	p.draw = function() 
+    {
+		p.graphDraw();
+	};
+
+	p.mouseClicked = function() 
+    {
+        try
+        {
+            if (movingPlot.isOverBox(p.mouseX, p.mouseY)) 
+            {
+                // Change the movement sense
+                clockwise = !clockwise;
+
+                if (clockwise) 
+                {
+                    step += movingPlot.getPointsRef().length + 1;
+                    movingPlot.setTitleText("Clockwise movement");
+                }
+                else 
+                {
+                    step -= movingPlot.getPointsRef().length + 1;
+                    movingPlot.setTitleText("Anti-clockwise movement");
+                }
+            }
+        }
+        catch
+        {
+            console.log("No Data")    
+        }
+        
+        if(buttonType == "saveButton" && 
+           p.mouseX > x && 
+           p.mouseX < x + xSize && 
+           p.mouseY > y && 
+           p.mouseY < y + ySize)
+        {
+            console.log("checked");
+            p.saveResults();
+        }
+	};
+
+	function calculatePoint(i, n, rad) 
+    {
+		var delta = 0.1 * p.cos(p.TWO_PI * 10 * i / n);
+		var ang = p.TWO_PI * i / n;
+		return new GPoint(rad * (1 + delta) * p.sin(ang), rad * (1 + delta) * p.cos(ang));
+	}
+    
+    p.createResolutionInfo = function(textData,posX,posY)
+    {
+        p.fill(0);
+        console.log(textData);
+        p.text(textData,posX,posY);
+    }
+    
+    p.graphSetup = function()
+    {
+        // Create the canvas
+		canvas = p.createCanvas(700, 2800);
 		p.background(255,255);
 
 		// Prepare the points for the plot
-        var timeData = new setDataOnGraph(p,"WORDGAMETIME",0,3);
-        var rightData = new setDataOnGraph(p,"WORDGAMERIGHT",1,3);
-        var wrongData = new setDataOnGraph(p,"WORDGAMEWRONG",2,3);
+        timeData = new setDataOnGraph(p,"WORDGAMETIME",0,3);
+        rightData = new setDataOnGraph(p,"WORDGAMERIGHT",1,3);
+        wrongData = new setDataOnGraph(p,"WORDGAMEWRONG",2,3);
         
         console.log(timeData);
         console.log(rightData);
@@ -48,7 +123,8 @@ var WordGamePlotSketch = function(p)
 
 		// Create a new plot and set its position on the screen
 		var plot = new GPlot(p);
-		plot.setPos(0, 0);
+		plot.setPos(0, 600);
+        plot.setDim(500, 300);
         
 		// Set the plot title and the axis labels
 		plot.setPoints(timePoints);
@@ -69,8 +145,8 @@ var WordGamePlotSketch = function(p)
         
         
         // Create the canvas
-		var firstPlotPos = [0, 300];
-		var panelDim = [180, 180];
+		var firstPlotPos = [0, 1000];
+		var panelDim = [250, 250];
 		var margins = [60, 70, 40, 30];
 
 		// Create four plots to represent the 4 panels
@@ -173,8 +249,8 @@ var WordGamePlotSketch = function(p)
 
 		// Create the plot
 		movingPlot = new GPlot(p);
-		movingPlot.setPos(0, 800);
-		movingPlot.setDim(300, 300);
+		movingPlot.setPos(0, 1600);
+		movingPlot.setDim(500, 500);
 		// or all in one go
 		// plot = new GPlot(p, 25, 25, 300, 300);
 
@@ -202,8 +278,8 @@ var WordGamePlotSketch = function(p)
         
         // Create the plot
 		periodPlot = new GPlot(p);
-        periodPlot.setPos(0, 1200);
-		periodPlot.setDim(400, 300);
+        periodPlot.setPos(0, 2200);
+		periodPlot.setDim(500, 300);
 		periodPlot.setTitleText("Game Stats");
 		periodPlot.getXAxis().setAxisLabelText("Year");
 		periodPlot.getYAxis().setAxisLabelText("Google normalized searches");
@@ -218,36 +294,11 @@ var WordGamePlotSketch = function(p)
         periodPlot.addLayer("Words Wrong", wordsWrongPoints);
         periodPlot.getLayer("Words Wrong").setLineColor(p.color(100, 255, 255));
 		periodPlot.activatePointLabels();
-        
-                //////////
-        var x = 500;
-        var y = 80;
-        
-        p.createResolutionInfo("Word Game | Summary:",x,y-30);
-        
-        p.createResolutionInfo("Times:",x,y);
-        p.createResolutionInfo(timeData,x,y + 20);
-        
-            p.createResolutionInfo("Total Time Played:",x + 20,y * 2);
-            p.createResolutionInfo(timeData[timeData.length-1],x + 20,y * 2 + 20);
-        
-        p.createResolutionInfo("Words Right:",x,y * 3);
-        p.createResolutionInfo(rightData,x,y * 3 + 20);
-        
-            p.createResolutionInfo("Total Existing Words:",x + 20,y * 4);
-            p.createResolutionInfo(rightData[rightData.length-1],x + 20,y * 4 + 20);
-        
-        p.createResolutionInfo("Words Wrong:",x,y * 5);
-        p.createResolutionInfo(wrongData,x,y * 5 + 20);
-        
-            p.createResolutionInfo("Total Non-existing Words:",x + 20,y * 6);
-            p.createResolutionInfo(wrongData[wrongData.length-1],x + 20,y * 6 + 20);
-	};
+    }
     
-    // Execute the sketch
-	p.draw = function() 
+    p.graphDraw = function()
     {
-		// Draw the plot
+        // Draw the plot
 		movingPlot.beginDraw();
 		movingPlot.drawBackground();
 		movingPlot.drawBox();
@@ -299,39 +350,113 @@ var WordGamePlotSketch = function(p)
 		periodPlot.drawLegend(["Time", "Words Right", "Words Wrong"], [0.07, 0.32, 0.48], [0.95, 0.95, 0.95]);
 		periodPlot.drawLabels();
 		periodPlot.endDraw();
-	};
-
-	p.mouseClicked = function() 
-    {
-		if (movingPlot.isOverBox(p.mouseX, p.mouseY)) 
-        {
-			// Change the movement sense
-			clockwise = !clockwise;
-
-			if (clockwise) 
-            {
-				step += movingPlot.getPointsRef().length + 1;
-				movingPlot.setTitleText("Clockwise movement");
-			}
-            else 
-            {
-				step -= movingPlot.getPointsRef().length + 1;
-				movingPlot.setTitleText("Anti-clockwise movement");
-			}
-		}
-	};
-
-	function calculatePoint(i, n, rad) 
-    {
-		var delta = 0.1 * p.cos(p.TWO_PI * 10 * i / n);
-		var ang = p.TWO_PI * i / n;
-		return new GPoint(rad * (1 + delta) * p.sin(ang), rad * (1 + delta) * p.cos(ang));
-	}
+    }
     
-    p.createResolutionInfo = function(textData,posX,posY)
+    p.textData = function()
     {
-        p.fill(0);
-        console.log(textData);
-        p.text(textData,posX,posY);
+        var x = 10;
+        var y = 110 - 20;
+        
+        var passed = 0;
+        var passedResult = 0;
+        var failed = 0;
+        var testTotal = 0;
+
+        var meanTime = 0;
+        var meanRight = 0;
+        var meanWrong = 0;
+        for(var i = 0; i < timeData.length; i++)
+        {
+            meanTime += p.float(timeData[i]);
+            meanRight += p.float(rightData[i]);
+            meanWrong += p.float(wrongData[i]);
+            
+            if(p.int(timeData[i]) < 30*(i+1))
+            {
+               passed +=1;
+            }
+            else if (p.int(timeData[i]) > 30*(i+1))
+            {
+                failed += 1;
+            }
+        }
+        testTotal = passed + failed;
+        
+        passedResult = passed/testTotal*100;
+        p.textSize(25);
+        if (passedResult <= 30)
+        {
+            p.createResolutionInfo("Grade: Concerning ",10,30);
+        }
+        
+        if (passedResult <= 40 && passedResult > 30)
+        {
+            p.createResolutionInfo("Grade: Below Average ",10,30);
+        }
+        
+        if (passedResult <= 50 && passedResult > 40)
+        {
+            p.createResolutionInfo("Grade: Passed",10,30);
+        }
+        
+        if (passedResult <= 60 && passedResult > 50)
+        {
+            p.createResolutionInfo("Grade: Above Average ",10,30);
+        }
+        
+                
+        if (passedResult <= 80 && passedResult > 60)
+        {
+            p.createResolutionInfo("Grade: Great ",10,30);
+        }
+        
+        if (passedResult > 80)
+        {
+            p.createResolutionInfo("Grade: Excellent ",10,30);
+        }
+        
+        p.textSize(15);
+        p.createResolutionInfo("Word Game | Summary:",x,y-30);
+        
+        p.createResolutionInfo("Overall Result:",x * 20 + 20 ,y-30);
+        p.createResolutionInfo(passed/testTotal*100+"%",x * 20 + 20,y);
+        
+        p.createResolutionInfo("Times:",x,y);
+        p.createResolutionInfo(timeData,x,y + 20);
+        
+            p.createResolutionInfo("Total Time Played:",x + 20,y * 2);
+            p.createResolutionInfo(timeData[timeData.length-1],x + 20,y * 2 + 20);
+            
+            meanTime = p.round(meanTime/timeData.length,2);
+        
+            p.createResolutionInfo("Mean Time:",x * 20 + 20,y * 2);
+            p.createResolutionInfo(meanTime,x * 20 + 20,y * 2 + 20);
+        
+        p.createResolutionInfo("Word Right:",x,y * 3);
+        p.createResolutionInfo(rightData,x,y * 3 + 20);
+        
+            p.createResolutionInfo("Total Existing Words:",x + 20,y * 4);
+            p.createResolutionInfo(rightData[rightData.length-1],x + 20,y * 4 + 20);
+            
+            meanRight = p.round(meanRight/timeData.length,2);
+        
+            p.createResolutionInfo("Mean Level:",x * 20 + 20,y * 4);
+            p.createResolutionInfo(meanRight,x * 20 + 20,y * 4 + 20);
+        
+        p.createResolutionInfo("Words Wrong:",x,y * 5);
+        p.createResolutionInfo(wrongData,x,y * 5 + 20);
+        
+            p.createResolutionInfo("Total Non-existing Words:",x + 20,y * 6);
+            p.createResolutionInfo(wrongData[wrongData.length-1],x + 20,y * 6 + 20);
+        
+            meanWrong = p.round(meanWrong/timeData.length,2);
+        
+            p.createResolutionInfo("Mean Level:",x * 20 + 20,y * 4);
+            p.createResolutionInfo(meanWrong,x * 20 + 20,y * 4 + 20);
+    }
+    
+    p.saveResults = function()
+    {
+        p.save(canvas, 'myResults.jpg');
     }
 };

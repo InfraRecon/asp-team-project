@@ -14,7 +14,17 @@ function myFunction()
 //Side nav
 function openNav() 
 {
-    document.getElementById("mySidenav").style.width = "80%";
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    
+    if (w <= 1000)
+    {
+        document.getElementById("mySidenav").style.width = "100%";
+    }
+    else if(w > 1000)
+    {
+        document.getElementById("mySidenav").style.width = "80%";
+    }
     document.getElementById("GMlside").style.position="fixed"; 
     document.getElementById("closeButton").style.position="absolute"; 
 }
@@ -148,7 +158,7 @@ function showSlides1(m)
 }
 
 //    SlideShow02      
-var slideIndex2 = 1;
+/*var slideIndex2 = 1;
 var timer2 = null;
 showSlides2(slideIndex2);
 
@@ -192,4 +202,4 @@ function showSlides2(m)
     slides2[slideIndex2-1].style.display = "block";
     dots2[slideIndex2-1].className += " active02";
     timer2 = setTimeout(showSlides2, 20000);
-}
+}*/
