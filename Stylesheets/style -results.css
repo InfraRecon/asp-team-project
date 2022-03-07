@@ -1,0 +1,325 @@
+/*index.html CSS*/
+body 
+{
+  overflow-x: hidden; /* Hide scrollbars */
+}
+////
+
+/*
+img 
+{
+    transition: transform .2s;  Animation 
+}
+
+img:hover 
+{
+    transform: scale(1.2);  (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) 
+}
+*/
+
+/*Login Form*/
+/* Extra styles for the cancel button */
+.container .cancelBtn 
+{
+    width: auto;
+    padding: 10px 18px;
+    background-color: darkred;
+    border: none;
+}
+
+.cancelBtn:hover
+{
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+/* Center the image and position the close button */
+.imgcontainer 
+{
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+.container 
+{
+    width: 100%;
+    padding: 5px;
+    z-index: 1; /* Sit on top */
+}
+
+span.psw 
+{
+    position: relative;
+    top: -1vw;
+    float: right;
+    padding-top: 16px;
+}
+
+/* The Modal (background) */
+.gameModal 
+{
+    display: none; /* Hidden by default */
+    position: fixed relative; /* Stay in place */
+    top: 100px;
+    left:0;
+    z-index: 10; /* Sit on top */
+    width: 100%; /* Full width */
+    height: auto; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 0px;
+    border: 5px solid white;
+}
+
+/* Modal Content/Box */
+.gameModal-content 
+{
+    background: radial-gradient(black,rgb(50,50,50,0.6));
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 0.2vw solid grey;
+    width: 80%; /* Could be more or less, depending on screen size */
+    font-family: calibri;
+   font-size: 20px;
+    color: white;
+    
+    text-shadow: 0.1vw 0vw black,
+                0vw 0.1vw black,
+                -0.1vw 0vw black,
+                0vw -0.1vw black;
+        z-index: 1; /* Sit on top */
+}
+
+/* The Close Button (x) */
+.close 
+{
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: white;
+    font-size: 3vw;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus 
+{
+    color: red;
+    cursor: pointer;
+}
+
+
+
+#sketchContainer
+{
+    position: relative;
+    top: 50px;
+    background-image: url("Style%20Images/5211331c3267926037327cb79eab9bd8.jpg");
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+
+/*Image Gallery*/
+div.gallery 
+{
+    position: relative;
+    left: 1vw;
+    margin: 2vw;
+    text-align: center;
+    float: left;
+    border: 0.25vw solid transparent;
+    width: 150px;
+    padding: 10px;
+}
+
+@media only screen and (max-width: 1000px) 
+{
+    div.gallery
+    {
+        left: 2.5vw;
+        margin: 0.5vw;
+        padding: 1vw;
+        width: 43%;
+        padding: 1vw;
+    }
+}
+
+div.gallery:hover 
+{
+    border: 0.1vw solid white;
+    animation-name: example;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
+
+div.gallery img 
+{
+    width: 100%;
+    height: auto;
+    border-radius: 10%;
+}
+
+div.desc
+{
+    background: transparent;
+    font-size: 15px;
+
+    color: white;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+@media only screen and (max-width: 1000px) 
+{
+    div.desc 
+    {
+        font-size: 0vw;
+    }
+}
+
+
+@keyframes zoomer
+{
+    0%   {transform: scale(1.1); left:-150vw;}
+    15% {transform: scale(1.1);left:0vw;}
+    100% {transform: scale(1);}
+}
+
+@keyframes example
+{
+    0%   { top:0vw;}
+    50% {top:-2vw;}
+    100%   {top:0vw;}
+}
+
+@media only screen and (max-width: 1000px) 
+{
+    @keyframes example
+    {
+        0%   { top:0vw;}
+        50% {top:-2vw;}
+        100%   {top:0vw;}
+    }
+}
+
+
+
+   
+
+
+/*Footer*/
+.marketing-site-footer 
+{
+    position: relative;
+    top: 50px;
+    background-color: teal;
+    color: white;
+    padding: 2rem 0 0;
+        z-index: 0; /* Sit on top */
+}
+
+.marketing-site-footer .marketing-site-footer-menu-social a {
+    color: #fefefe;
+}
+
+.marketing-site-footer .column-block {
+    margin-bottom: 30px;
+}
+
+.marketing-site-footer > .row {
+    margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 39.9375em) {
+    .marketing-site-footer .columns {
+        margin-bottom: 2rem;
+    }
+}
+
+.marketing-site-footer-name {
+    color: #fefefe;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.marketing-site-footer-title {
+    color: #fefefe;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.marketing-site-footer-block {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.marketing-site-footer-block .fa {
+    font-size: 2rem;
+    color: #020304;
+}
+
+.marketing-site-footer-block p {
+    margin-left: 1rem;
+    line-height: 1.125rem;
+}
+
+.marketing-site-footer-bottom {
+    background: #020304;
+    padding: 1rem 0;
+}
+
+.marketing-site-footer-bottom p,
+.marketing-site-footer-bottom .menu {
+    margin-bottom: 0;
+}
+
+.marketing-site-footer-bottom .marketing-site-footer-bottom-links {
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+
+.marketing-site-footer-bottom .marketing-site-footer-bottom-links a {
+    color: #8aa0ae;
+}
+
+@media screen and (max-width: 63.9375em) {
+    .marketing-site-footer-bottom .marketing-site-footer-bottom-links {
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 63.9375em) {
+    .marketing-site-footer-bottom {
+        text-align: center;
+    }
+}
+
+/*IMPORTANT*/
+.padding_bars
+{
+    position: absolute;
+    top: 0vw;
+    left: -0.1vw;
+    transform:  scale(1);
+}
+
+@media screen and (max-width: 1000px) 
+{
+    .padding_bars
+    {
+        top: 0vw;
+        left: -0.1vw;
+        transform:  scale(1);
+    }      
+}
