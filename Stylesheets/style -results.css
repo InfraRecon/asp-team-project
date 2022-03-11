@@ -144,7 +144,7 @@ div.gallery
         left: 2.5vw;
         margin: 0.5vw;
         padding: 1vw;
-        width: 43%;
+        width: 30%;
         padding: 1vw;
     }
 }
@@ -179,7 +179,7 @@ div.desc
 {
     div.desc 
     {
-        font-size: 0vw;
+        font-size: 15px;
     }
 }
 
