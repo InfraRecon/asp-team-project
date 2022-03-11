@@ -1,4 +1,6 @@
-var WordGamePlotSketch = function(p) 
+import {setDataOnGraph} from '../../storage.js';
+
+window.WordGamePlotSketch = function(p)
 {   
     // Global variables
     var timePoints = [];

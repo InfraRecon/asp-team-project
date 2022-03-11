@@ -1,4 +1,6 @@
-var BlockGamePlotSketch = function(p) 
+import {setDataOnGraph} from '../../storage.js';
+
+window.BlockGamePlotSketch = function(p)
 {   
     // Global variables
     var timePoints = [];
