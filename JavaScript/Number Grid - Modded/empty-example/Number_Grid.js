@@ -1,3 +1,19 @@
+import {compileGameData} from '../../storage.js';
+
+var p5Sketch;
+
+window.runSketch = function () {
+    if (typeof p5Sketch !== 'undefined') {
+        p5Sketch.remove();
+    }
+
+    p5Sketch = new p5(numGridSketch, "sketchContainer");
+};
+
+window.stopSketch = function() {
+    p5Sketch.remove();
+}
+
 var numGridSketch = function(p)
 {
     var times = [];

@@ -1,4 +1,6 @@
-var BubbleGamePlotSketch = function(p) 
+import {setDataOnGraph} from '../../storage.js';
+
+window.BubbleGamePlotSketch = function(p)
 {   
     // Global variables
     var timePoints = [];

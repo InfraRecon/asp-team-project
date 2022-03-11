@@ -1,4 +1,6 @@
-var MazeGamePlotSketch = function(p) 
+import {setDataOnGraph} from '../../storage.js';
+
+window.MazeGamePlotSketch = function(p)
 {
     // Global variables
     var timePoints = [];

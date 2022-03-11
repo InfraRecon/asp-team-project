@@ -34,7 +34,23 @@ History
 Modified by Roberto Bliaja
 */
 
-var mazeSketch = function(p){
+import {compileGameData} from '../../storage.js';
+
+var p5Sketch;
+
+window.runSketch = function () {
+    if (typeof p5Sketch !== 'undefined') {
+        p5Sketch.remove();
+    }
+
+    p5Sketch = new p5(mazeSketch, "sketchContainer");
+};
+
+window.stopSketch = function() {
+    p5Sketch.remove();
+}
+
+var mazeSketch = function (p) {
     var cols, rows, w;
     var stack = [];
     var cells = [];
@@ -57,16 +73,15 @@ var mazeSketch = function(p){
     const MAX_PARTICLE_COUNT = 25;
     const MAX_TRAIL_COUNT = 10;
 
-    var colorScheme = ["#0A1B28", "#071F43", "#357D7E", "#35EEEE", "#919DF0","#FF0000"];
+    var colorScheme = ["#0A1B28", "#071F43", "#357D7E", "#35EEEE", "#919DF0", "#FF0000"];
     var trail = [];
     var particles = [];
-    
+
     var timer = 0;
     var level = 0;
     var tab = 0;
 
-    p.setup = function() 
-    {
+    p.setup = function () {
         winSizeW = 500;
         winSizeH = 500;
         p.createCanvas(winSizeW, winSizeH);
@@ -80,16 +95,14 @@ var mazeSketch = function(p){
         cols = 5;
         rows = 5;
         p.reset(cols, rows, p.floor(cols * 1.5));
-    }
-    
-    p.draw = function() 
-    {
+    };
+
+    p.draw = function () {
         if (player.pos.x == endPoint % cols && player.pos.y == p.floor(endPoint / cols) &&
-            coins.length == 0) 
-        {
+            coins.length == 0) {
             cols += 2;
             rows += 2;
-            
+
             times.push(p.timeClock(true));
             level++;
             p.reset(cols, rows, p.floor(cols * 1.5));
@@ -98,120 +111,91 @@ var mazeSketch = function(p){
 
         p.image(img, winSizeW / 2, winSizeH / 2, winSizeW, winSizeH);
 
-        p.fill(0, 0,0);
-        p.ellipse((endPoint % cols) * w + w / 2, p.floor(endPoint / cols) * w + w / 2, w/2, w/2)
+        p.fill(0, 0, 0);
+        p.ellipse((endPoint % cols) * w + w / 2, p.floor(endPoint / cols) * w + w / 2, w / 2, w / 2);
 
         player.show();
-        if(!player.auto)
-        {
+        if (!player.auto) {
             player.move();
         }
         p.checkCoin(player.pos.x, player.pos.y);
 
-        for (var i = 0; i < coins.length; i++) 
-        {
+        for (var i = 0; i < coins.length; i++) {
             coins[i].show();
         }
 
         var m = p.atMouse();
-        if (m.x < cols && m.y < rows && m.x >= 0 && m.y >= 0) 
-        {
+        if (m.x < cols && m.y < rows && m.x >= 0 && m.y >= 0) {
             p.noStroke();
-            p.fill(255,100);
-            p.ellipse(m.x * w + w/2, m.y * w + w/2, w/3, w/3);
+            p.fill(255, 100);
+            p.ellipse(m.x * w + w / 2, m.y * w + w / 2, w / 3, w / 3);
         }
-        
+
         p.timeClock(times);
-    }
-    
-    p.keyPressed = function() 
-    {
-        if (p.keyCode == p.LEFT_ARROW) 
-        {
+    };
+
+    p.keyPressed = function () {
+        if (p.keyCode == p.LEFT_ARROW) {
             player.direc = dir.left;
 
-        } 
-        else if (p.keyCode == p.RIGHT_ARROW) 
-        {
+        } else if (p.keyCode == p.RIGHT_ARROW) {
             player.direc = dir.right;
 
-        } 
-        else if (p.keyCode == p.UP_ARROW) 
-        {
+        } else if (p.keyCode == p.UP_ARROW) {
             player.direc = dir.up;
 
-        } 
-        else if (p.keyCode == p.DOWN_ARROW) 
-        {
+        } else if (p.keyCode == p.DOWN_ARROW) {
             player.direc = dir.down;
 
-        } 
-        else if (p.keyCode == 13) 
-        {
+        } else if (p.keyCode == 13) {
             reset(cols, rows, p.floor(cols * 1.5));
 
-        } 
-        else if (p.keyCode == 27) 
-        {
+        } else if (p.keyCode == 27) {
             var a = prompt("Level: ");
             cols = Number(a) || cols;
             rows = Number(a) || rows;
             reset(cols, rows, floor(cols * 1.5));
 
-        } 
-        else if (p.keyCode == 123 || p.keyCode == 73) 
-        {
+        } else if (p.keyCode == 123 || p.keyCode == 73) {
             imgPlayer = null;
             return false;
 
-        } 
-        else if (p.keyCode == 65) 
-        {
+        } else if (p.keyCode == 65) {
             player.auto = !player.auto;
         }
-    }
-    
-    p.mousePressed = function() 
-    {
+    };
+
+    p.mousePressed = function () {
         var m = p.atMouse();
 
-        if (!paths.includes(cells[m.x + m.y * cols])) 
-        {
-            if (m.x < cols && m.y < rows && m.x >= 0 && m.y >= 0) 
-            {
+        if (!paths.includes(cells[m.x + m.y * cols])) {
+            if (m.x < cols && m.y < rows && m.x >= 0 && m.y >= 0) {
                 p.reset_Astart(cells[player.pos.x + player.pos.y * cols]);
                 p.A_star(cells[m.x + m.y * cols]);
             }
-        } 
-        else
-        {
-            var found = paths.findIndex(function(ele) 
-            {
+        } else {
+            var found = paths.findIndex(function (ele) {
                 return ele == cells[m.x + m.y * cols];
             });
 
             paths.splice(0, found);
             p.drawPaths();
         }
-    }
+    };
 
-    p.mouseDragged = function() 
-    {
+    p.mouseDragged = function () {
         p.mousePressed();
-    }
+    };
 
-    p.atMouse = function() 
-    {
+    p.atMouse = function () {
         return {
             x: p.floor(p.mouseX / w),
             y: p.floor(p.mouseY / w)
         };
-    }
- 
-    p.calculateMaze = function() 
-    {
-        while (stack.length > 0) 
-        {
+    };
+
+    p.calculateMaze = function () {
+        while (stack.length > 0) {
             currentCell.visited = true;
 
             var next = currentCell.checkNeighbors();
@@ -221,21 +205,17 @@ var mazeSketch = function(p){
                 stack.push(currentCell);
                 p.removeWalls(currentCell, next);
                 currentCell = next;
-            } 
-
-            else if (stack.length > 0) {
+            } else if (stack.length > 0) {
                 currentCell = stack.pop();
             }
         }
 
-        for (var i = 0; i < cells.length; i++) 
-        {
+        for (var i = 0; i < cells.length; i++) {
             cells[i].show();
         }
-    }
+    };
 
-    p.reset = function(collum, row, numCoin) 
-    {
+    p.reset = function (collum, row, numCoin) {
         img = p.createGraphics(winSizeW, winSizeH);
         img.pixelDensity(1);
 
@@ -269,17 +249,15 @@ var mazeSketch = function(p){
             cells[i].addNeighbors();
 
         p.reset_Astart(cells[startPoint]);
-    }
+    };
 
-    p.index = function(x, y) 
-    {
+    p.index = function (x, y) {
         if (x < 0 || x > cols - 1 || y < 0 || y > rows - 1)
             return -1;
         return x + y * cols;
-    }
-    
-    p.Cell = function(x, y) 
-    {
+    };
+
+    p.Cell = function (x, y) {
         this.x = x;
         this.y = y;
         this.walls = {
@@ -295,7 +273,7 @@ var mazeSketch = function(p){
         this.h = 0;
         this.previous = undefined;
 
-        this.checkNeighbors = function() {
+        this.checkNeighbors = function () {
             var neighbors = [];
 
             var top = cells[p.index(x, y - 1)];
@@ -317,14 +295,14 @@ var mazeSketch = function(p){
             }
 
             if (neighbors.length > 0) {
-                var r = p.floor(p.random(0, neighbors.length))
+                var r = p.floor(p.random(0, neighbors.length));
                 return neighbors[r];
             } else {
                 return null;
             }
-        }
+        };
 
-        this.addNeighbors = function() {
+        this.addNeighbors = function () {
             this.neighbors = [];
 
             var top = cells[p.index(x, y - 1)];
@@ -344,9 +322,9 @@ var mazeSketch = function(p){
             if (left && !this.walls.left) {
                 this.neighbors.push(left);
             }
-        }
+        };
 
-        this.show = function() {
+        this.show = function () {
             var posx = this.x * w;
             var posy = this.y * w;
 
@@ -354,26 +332,25 @@ var mazeSketch = function(p){
             img.strokeWeight(5);
             var wallSize = 5;
             if (this.walls.top) {
-                img.line(posx, posy, posx + w, posy)
-                img.line(posx + wallSize, posy + wallSize, posx + w + wallSize, posy + wallSize)
+                img.line(posx, posy, posx + w, posy);
+                img.line(posx + wallSize, posy + wallSize, posx + w + wallSize, posy + wallSize);
             }
             if (this.walls.right) {
-                img.line(posx + w, posy, posx + w, posy + w)
-                img.line(posx + w + wallSize, posy + wallSize, posx + w + wallSize, posy + w + wallSize)
+                img.line(posx + w, posy, posx + w, posy + w);
+                img.line(posx + w + wallSize, posy + wallSize, posx + w + wallSize, posy + w + wallSize);
             }
             if (this.walls.bottom) {
-                img.line(posx + w, posy + w, posx, posy + w)
-                img.line(posx + w + wallSize, posy + w + wallSize, posx + wallSize, posy + w + wallSize)
+                img.line(posx + w, posy + w, posx, posy + w);
+                img.line(posx + w + wallSize, posy + w + wallSize, posx + wallSize, posy + w + wallSize);
             }
             if (this.walls.left) {
                 img.line(posx, posy + w, posx, posy);
                 img.line(posx + wallSize, posy + w + wallSize, posx + wallSize, posy + wallSize);
             }
-        }
-    }
-    
-    p.removeWalls = function(a, b) 
-    {
+        };
+    };
+
+    p.removeWalls = function (a, b) {
         var x = a.x - b.x;
         if (x == 1) {
             a.walls.left = false;
@@ -391,17 +368,16 @@ var mazeSketch = function(p){
             a.walls.bottom = false;
             b.walls.top = false;
         }
-    }
+    };
 
-    p.drawMap = function() 
-    {
-        img.background(200,150,0);
+    p.drawMap = function () {
+        img.background(200, 150, 0);
         for (var i = 0; i < cells.length; i++) {
             cells[i].previous = undefined;
             cells[i].show();
         }
-    }
-    
+    };
+
     // ==============================================
 
     var dir = {
@@ -412,8 +388,7 @@ var mazeSketch = function(p){
         none: 0
     };
 
-    p.Player = function(x, y) 
-    {
+    p.Player = function (x, y) {
         this.pos = p.createVector(x, y);
         this.direc = dir.none;
         this.score = 0;
@@ -421,25 +396,22 @@ var mazeSketch = function(p){
         this.auto = false;
         this.x = 0;
         this.y = 0;
-        this.shapeSize = w/10;
+        this.shapeSize = w / 10;
 
-        this.show = function() 
-        {
+        this.show = function () {
             p.push();
-                p.translate(this.pos.x * w + w / 2, this.pos.y * w + w / 2);
-                if (this.direc == dir.up) this.ro = -90;
-                else if (this.direc == dir.down) this.ro = 90;
-                else if (this.direc == dir.left) this.ro = 180;
-                else if (this.direc == dir.right) this.ro = 0;
+            p.translate(this.pos.x * w + w / 2, this.pos.y * w + w / 2);
+            if (this.direc == dir.up) this.ro = -90;
+            else if (this.direc == dir.down) this.ro = 90;
+            else if (this.direc == dir.left) this.ro = 180;
+            else if (this.direc == dir.right) this.ro = 0;
 
-                p.drawLuminParticle(this.x,this.y,this.shapeSize,20);
+            p.drawLuminParticle(this.x, this.y, this.shapeSize, 20);
             p.pop();
 
 
-            if (this.auto) 
-            {
-                if (paths.length > 0)
-                {
+            if (this.auto) {
+                if (paths.length > 0) {
                     var next = paths[paths.length - 1];
 
                     if (this.pos.x < next.x) this.direc = dir.right;
@@ -452,113 +424,98 @@ var mazeSketch = function(p){
                     this.move();
                     p.drawMap();
                     p.drawPaths();
-                } 
-                else 
-                {
+                } else {
                     this.direc = dir.none;
                     this.auto = false;
                 }
             }
-        }
+        };
 
-        this.move = function() 
-        {
+        this.move = function () {
             if (this.direc == dir.up &&
-                !cells[this.pos.x + this.pos.y * cols].walls.top) 
-            {
+                !cells[this.pos.x + this.pos.y * cols].walls.top) {
                 this.pos.y--;
 
             } else if (this.direc == dir.down &&
-                !cells[this.pos.x + this.pos.y * cols].walls.bottom) 
-            {
+                !cells[this.pos.x + this.pos.y * cols].walls.bottom) {
                 this.pos.y++;
 
             } else if (this.direc == dir.left &&
-                !cells[this.pos.x + this.pos.y * cols].walls.left) 
-            {
+                !cells[this.pos.x + this.pos.y * cols].walls.left) {
                 this.pos.x--;
 
             } else if (this.direc == dir.right &&
-                !cells[this.pos.x + this.pos.y * cols].walls.right) 
-            {
+                !cells[this.pos.x + this.pos.y * cols].walls.right) {
                 this.pos.x++;
             }
-            if (countWalls(cells[this.pos.x + this.pos.y * cols]) <= 1)
+            if (p.countWalls(cells[this.pos.x + this.pos.y * cols]) <= 1)
                 this.direc = dir.none;
-        }
-    }
-    
-    p.Coin = function(x, y) 
-    {
+        };
+    };
+
+    p.Coin = function (x, y) {
         this.x = x;
         this.y = y;
-        this.frames = (p.random(-5,5));
+        this.frames = (p.random(-5, 5));
         this.timeCount = 0;
 
-        this.show = function() 
-        {
-            if (imgCoin)
-            {
-                p.fill(255,0,0);
+        this.show = function () {
+            if (imgCoin) {
+                p.fill(255, 0, 0);
                 p.ellipse(this.x * w + w / 2,
-                        this.y * w + w / 2,
-                        w / 2 / this.frames,
-                        w / 2 /this.frames);
+                    this.y * w + w / 2,
+                    w / 2 / this.frames,
+                    w / 2 / this.frames);
 
                 p.fill(255);
                 p.ellipse(this.x * w + w / 2,
-                        this.y * w + w / 2,
-                        w / 3 / this.frames,
-                        w / 3 /this.frames);
+                    this.y * w + w / 2,
+                    w / 3 / this.frames,
+                    w / 3 / this.frames);
 
                 p.push();
-                   /*// drawLuminParticle(this.x * w + w / 2,
-                                      this.y * w + w / 2,
-                                      w / 50,1);*/
+                /*// drawLuminParticle(this.x * w + w / 2,
+                                   this.y * w + w / 2,
+                                   w / 50,1);*/
                 p.pop();
             }
 
 
-            if (p.millis() - this.timeCount > 50) 
-            {
+            if (p.millis() - this.timeCount > 50) {
                 this.timeCount = p.millis();
                 this.frames = (this.frames + 0.1) % 5;
                 if (this.frames < 1) this.frames = 1;
             }
-        }
-    }
+        };
+    };
 
-    p.checkCoin = function(x, y) 
-    {
+    p.checkCoin = function (x, y) {
         for (var i = 0; i < coins.length; i++) {
-            if (x == coins[i].x && y == coins[i].y) 
-            {
+            if (x == coins[i].x && y == coins[i].y) {
                 tab = player.score++;
                 coins.splice(i, 1);
                 console.log(coins);
                 return;
             }
         }
-    }
-    
-    countWalls = function(cell) 
-    {
+    };
+
+    p.countWalls = function (cell) {
         var count = 0;
         if (cell.walls.top) count++;
         if (cell.walls.bottom) count++;
         if (cell.walls.left) count++;
         if (cell.walls.right) count++;
         return count;
-    }
-
+    };
 
 
     // Open and closed set
     var openSet = [];
     var closedSet = [];
     var paths = [];
-    
-    p.A_star = function(end) {
+
+    p.A_star = function (end) {
         while (openSet.length > 0) {
             // Best next option
             var winner = 0;
@@ -614,61 +571,53 @@ var mazeSketch = function(p){
                 }
             }
         }
-    }
-    
-    p.reset_Astart = function(start) 
-    {
+    };
+
+    p.reset_Astart = function (start) {
         openSet = [];
         closedSet = [];
         paths = [];
         openSet.push(start);
 
         p.drawMap();
-    }
+    };
 
-    p.addToPaths = function(ele) 
-    {
+    p.addToPaths = function (ele) {
         paths = [];
         paths.push(ele);
-        while (ele.previous) 
-        {
+        while (ele.previous) {
             paths.push(ele.previous);
             ele = ele.previous;
         }
-    }
+    };
 
-    p.drawPaths = function() 
-    {
+    p.drawPaths = function () {
         p.drawMap();
         img.noFill();
         img.stroke(0, 100);
         img.strokeWeight(w / 2);
         img.beginShape();
-        for (var i = 0; i < paths.length; i++) 
-        {
+        for (var i = 0; i < paths.length; i++) {
             img.vertex(paths[i].x * w + w / 2, paths[i].y * w + w / 2);
         }
         img.endShape();
-    }
-    
+    };
+
     //Draws a luminous particle
-    p.drawLuminParticle = function(x,y,size,randomPart)
-    {
+    p.drawLuminParticle = function (x, y, size, randomPart) {
         p.blendMode(p.BLEND);
         p.blendMode(p.SCREEN);
         p.blendMode(p.ADD);
 
         // Trim end of trail.
-        trail.push([x + p.random(-randomPart,randomPart), y + p.random(-randomPart,randomPart)]);
+        trail.push([x + p.random(-randomPart, randomPart), y + p.random(-randomPart, randomPart)]);
 
         let removeCount = 1;
-        if (p.mouseIsPressed && p.mouseButton == p.CENTER) 
-        {
+        if (p.mouseIsPressed && p.mouseButton == p.CENTER) {
             removeCount++;
         }
 
-        for (let i = 0; i < removeCount; i++) 
-        {
+        for (let i = 0; i < removeCount; i++) {
             if (trail.length == 0) {
                 break;
             }
@@ -682,22 +631,18 @@ var mazeSketch = function(p){
         if (trail.length > 1) {
             var mouse = new p5.Vector(x, y);
             mouse.sub(p.pmouseX, p.pmouseY);
-            if (mouse.mag() > 5) 
-            {
+            if (mouse.mag() > 5) {
                 mouse.normalize();
-                for (let i = 0; i < 3; i++) 
-                {
-                    particles.push(new Particle(p,p.pmouseX, p.pmouseY, mouse.x, mouse.y));
+                for (let i = 0; i < 3; i++) {
+                    particles.push(new Particle(p, p.pmouseX, p.pmouseY, mouse.x, mouse.y));
                 }
             }
         }
 
         // Move and kill particles.
-        for (let i = particles.length - 1; i > -1; i--) 
-        {
+        for (let i = particles.length - 1; i > -1; i--) {
             particles[i].move();
-            if (particles[i].vel.mag() < 0.1) 
-            {
+            if (particles[i].vel.mag() < 0.1) {
                 particles.splice(i, 1);
             }
         }
@@ -705,8 +650,7 @@ var mazeSketch = function(p){
         // Draw trail.
         p.drawingContext.shadowColor = p.color(0, 125, 255);
 
-        for (let i = 0; i < trail.length; i++) 
-        {
+        for (let i = 0; i < trail.length; i++) {
             let mass = i * 1.5;
             p.drawingContext.shadowBlur = mass;
 
@@ -716,105 +660,89 @@ var mazeSketch = function(p){
         }
 
         // Draw particles.
-        for (let i = 0; i < particles.length; i++) 
-        {
+        for (let i = 0; i < particles.length; i++) {
             var parts = particles[i];
             var mass = parts.mass * parts.vel.mag() * 0.6;
-            
+
             p.drawingContext.shadowColor = p.color(colorScheme[parts.colorIndex]);
             p.drawingContext.shadowBlur = mass;
 
-            p.stroke(255,0,0);
+            p.stroke(255, 0, 0);
             p.strokeWeight(mass * 0.05);
 
-            p.fill(255,0,0);
-            p.ellipse(x, y,size);
+            p.fill(255, 0, 0);
+            p.ellipse(x, y, size);
 
-            if(diam > w)
-            {
+            if (diam > w) {
                 inOut = false;
             }
 
-            if(diam < w/2)
-            {
+            if (diam < w / 2) {
                 inOut = true;
             }
 
-            if(inOut)
-            {
+            if (inOut) {
                 diam += 0.0005;
             }
 
-            if(!inOut)
-            {
+            if (!inOut) {
                 diam -= 0.0005;
             }
         }
-    }
-    
+    };
+
     // Function to delete element from the array
-    p.removeFromArray = function(arr, elt) 
-    {
+    p.removeFromArray = function (arr, elt) {
         // Could use indexOf here instead to be more efficient
         for (var i = arr.length - 1; i >= 0; i--) {
             if (arr[i] == elt) {
                 arr.splice(i, 1);
             }
         }
-    }
+    };
 
-    p.heuristic = function(a, b) 
-    {
+    p.heuristic = function (a, b) {
         var d = p.dist(a.i, a.j, b.i, b.j);
         // var d = abs(a.i - b.i) + abs(a.j - b.j);
         return d;
-    }
-    
-    p.timeClock = function(stopTime)
-    {
-        if (p.frameRate() % 30) 
-        { 
+    };
+
+    p.timeClock = function (stopTime) {
+        if (p.frameRate() % 30) {
             //if the frameCount is divisible by 60, then a second has passed. it will stop at 0
-            timer ++;
+            timer++;
             p.textSize(20);
             p.stroke(0);
             p.strokeWeight(2);
-            
-            var realTimeSeconds = p.round(timer/30,1);
-            if(realTimeSeconds < 60)
-            {
-                p.text("Time: " + realTimeSeconds + "'s",0, 20); 
-                if (stopTime == true)
-                {
+
+            var realTimeSeconds = p.round(timer / 30, 1);
+            if (realTimeSeconds < 60) {
+                p.text("Time: " + realTimeSeconds + "'s", 0, 20);
+                if (stopTime == true) {
                     return realTimeSeconds;
                 }
-            }
-            else if(realTimeSeconds > 60)
-            {
-                var realTimeMinutes = p.round(realTimeSeconds/60 * 1,2);
-                p.text("Time: " + realTimeMinutes + "'m",0, 20);
-                if (stopTime == true)
-                {
+            } else if (realTimeSeconds > 60) {
+                var realTimeMinutes = p.round(realTimeSeconds / 60 * 1, 2);
+                p.text("Time: " + realTimeMinutes + "'m", 0, 20);
+                if (stopTime == true) {
                     return realTimeMinutes;
                 }
             }
         }
-        
-        if(times != "")
-        {
-            p.text(times + "'s",0, 40);
-        }
-    }
-    
-    p.localStore = function()
-    {
-        compileGameData(p,"MAZEGAMETIME",0,times[times.length -1],false,0);
-        compileGameData(p,"MAZEGAMELEVEL",1,level,false,0);
-        compileGameData(p,"MAZEGAMETAB",2,tab,false,0);
-    }
 
-    window.oncontextmenu = function() {
+        if (times != "") {
+            p.text(times + "'s", 0, 40);
+        }
+    };
+
+    p.localStore = function () {
+        compileGameData(p, "MAZEGAMETIME", 0, times[times.length - 1], false, 0);
+        compileGameData(p, "MAZEGAMELEVEL", 1, level, false, 0);
+        compileGameData(p, "MAZEGAMETAB", 2, tab, false, 0);
+    };
+
+    window.oncontextmenu = function () {
         player.auto = true;
         return false;
-    }
-}
+    };
+};

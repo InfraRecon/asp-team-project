@@ -1,3 +1,19 @@
+import {compileGameData} from '../../storage.js';
+
+var p5Sketch;
+
+window.runSketch = function () {
+    if (typeof p5Sketch !== 'undefined') {
+        p5Sketch.remove();
+    }
+
+    p5Sketch = new p5(tetrisSketch, "sketchContainer");
+};
+
+window.stopSketch = function() {
+    p5Sketch.remove();
+}
+
 var tetrisSketch = function(p)
 {
     let playfield, fallingPiece, ghostPiece, paused;
@@ -130,12 +146,12 @@ var tetrisSketch = function(p)
         switch (p.key.toLowerCase()) 
         {
             case ' ':
-                hardDrop(fallingPiece, playfield);
-                spawnNewPiece();
+                p.hardDrop(fallingPiece, playfield);
+                p.spawnNewPiece();
                 break;
 
             case 'r':
-                spawnNewPiece();
+                p.spawnNewPiece();
                 playfield.resetGrid();
                 break;
 
@@ -147,7 +163,7 @@ var tetrisSketch = function(p)
             // Rotation
             // --------
 
-            case 'z':
+            case 'z':w
                 fallingPiece.rotateCCW();
                 // if not valid, rotate back
                 if (!playfield.isValid(fallingPiece))
@@ -170,7 +186,7 @@ var tetrisSketch = function(p)
                 break;
 
             case 'n':
-                spawnNewPiece();
+                p.spawnNewPiece();
                 break;
 
         }

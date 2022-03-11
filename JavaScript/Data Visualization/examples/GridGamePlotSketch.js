@@ -1,4 +1,6 @@
-var GridGamePlotSketch = function(p) 
+import {setDataOnGraph} from '../../storage.js';
+
+window.GridGamePlotSketch = function(p)
 {   
     // Global variables
     var timePoints = [];
