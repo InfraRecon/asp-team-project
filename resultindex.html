@@ -12,8 +12,8 @@
     <meta name="keywords" content="Gaming 'Gaming MAG'">
     
     <link rel="shortcut icon" href="Images/Mind-PNG-Picture.png" type="image/x-icon" />
-    <link rel="stylesheet" type="text/css" href="/Stylesheets/navigation-bar-Style.css">
-    <link rel="stylesheet" type="text/css" href="/Stylesheets/style%20-results.css">
+    <link rel="stylesheet" type="text/css" href="Stylesheets/navigation-bar-Style.css">
+    <link rel="stylesheet" type="text/css" href="Stylesheets/style%20-results.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css"/>
 </head>
@@ -282,14 +282,14 @@
           </p>
           <div class="row">
             <div class="small-12 medium-3 columns">
-              <i class="fa fa-snowflake-o" aria-hidden="true"></i>
+              <i class="fa fa-bullseye" aria-hidden="true"></i>
               <h4 class="marketing-site-features-title">Play</h4>
               <p class="marketing-site-features-desc">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               </p>
             </div>
             <div class="small-12 medium-3 columns">
-              <i class="fa fa-angellist" aria-hidden="true"></i>
+              <i class="fa fa-bullseye" aria-hidden="true"></i>
               <h4 class="marketing-site-features-title">Analyse</h4>
               <p class="marketing-site-features-desc">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -303,7 +303,7 @@
               </p>
             </div>
             <div class="small-12 medium-3 columns">
-              <i class="fa fa-battery-full" aria-hidden="true"></i>
+              <i class="fa fa-bullseye" aria-hidden="true"></i>
               <h4 class="marketing-site-features-title">Share</h4>
               <p class="marketing-site-features-desc">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -333,7 +333,7 @@
             <div class="gallery">
               <a target="_blank" onclick="document.getElementById('idGameModal').style.display='block'">
                 <img onclick="runSketch(MazeGamePlotSketch);" 
-                     src="Images/maxresdefault%20(2).jpg" alt="Cinque Terre" width="600" height="400">
+                     src="Images/Result%20Icon.png" alt="Cinque Terre" width="600" height="400">
               </a>
               <div class="desc">Maze Game | Results</div>
             </div>
@@ -341,7 +341,7 @@
             <div class="gallery">
               <a target="_blank" onclick="document.getElementById('idGameModal').style.display='block'">
                 <img onclick="runSketch(BlockGamePlotSketch);"
-                     src="Images/background-1086706_1280.jpg" alt="Cinque Terre" width="600" height="400">
+                     src="Images/Result%20Icon.png" alt="Cinque Terre" width="600" height="400">
               </a>
               <div class="desc">Block Game | Results</div>
             </div>
@@ -349,7 +349,7 @@
             <div class="gallery">
               <a target="_blank" onclick="document.getElementById('idGameModal').style.display='block'">
                 <img onclick="runSketch(BubbleGamePlotSketch);" 
-                     src="Images/maxresdefault%20(2).jpg" alt="Cinque Terre" width="600" height="400">
+                     src="Images/Result%20Icon.png" alt="Cinque Terre" width="600" height="400">
               </a>
               <div class="desc">Bubble Game | Results</div>
             </div>
@@ -357,7 +357,7 @@
             <div class="gallery">
               <a target="_blank" onclick="document.getElementById('idGameModal').style.display='block'">
                 <img onclick="runSketch(WordGamePlotSketch);" 
-                     src="Images/maxresdefault%20(2).jpg" alt="Cinque Terre" width="600" height="400">
+                     src="Images/Result%20Icon.png" alt="Cinque Terre" width="600" height="400">
               </a>
               <div class="desc">Word Game | Results</div>
             </div>
@@ -365,7 +365,7 @@
             <div class="gallery">
               <a target="_blank" onclick="document.getElementById('idGameModal').style.display='block'">
                 <img onclick="runSketch(GridGamePlotSketch);" 
-                     src="Images/maxresdefault%20(2).jpg" alt="Cinque Terre" width="600" height="400">
+                     src="Images/Result%20Icon.png" alt="Cinque Terre" width="600" height="400">
               </a>
               <div class="desc">Grid Game | Results</div>
             </div>
@@ -397,42 +397,20 @@
         </div>
     </div>
     
-	<!--<ul>
-		<li onclick="runSketch(multiplePlotsSketch);">Multiple plots
-			example</li>
-		<li onclick="runSketch(multiplePanelsSketch);">Multiple panels
-			example</li>
-		<li onclick="runSketch(exponentialTrendSketch);">Exponential
-			trend example</li>
-		<li onclick="runSketch(movingPointsSketch);">Moving points
-			example</li>
-		<li onclick="runSketch(oktoberfestSketch);">Oktoberfest example</li>
-		<li onclick="runSketch(twoVerticalAxesSketch);">Two vertical axis
-			example</li>
-        <li onclick="runSketch(writeToJSONSketch);">Write JSON</li>
-	</ul>-->
-
 	<!-- JavaScript files -->
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.10/p5.min.js"></script>
     <script
 		src="JavaScript/p5.js%20Libraries/p5.dom.min.js">
     </script>
-    <script src="JavaScript/Read-WriteToJSON%20Test%20File/compileData.js"></script>
 	<script src="JavaScript/Data Visualization/lib/grafica.min.js"></script>
-	<script src="JavaScript/Data Visualization/examples/MazeGamePlotSketch.js"></script>
-    <script src="JavaScript/Data Visualization/examples/BlockGamePlotSketch.js"></script>
-    <script src="JavaScript/Data Visualization/examples/BubbleGamePlotSketch.js"></script>
-    <script src="JavaScript/Data Visualization/examples/WordGamePlotSketch.js"></script>
-    <script src="JavaScript/Data Visualization/examples/GridGamePlotSketch.js"></script>
+
+	<script type="module" src="JavaScript/Data Visualization/examples/MazeGamePlotSketch.js"></script>
+    <script type="module" src="JavaScript/Data Visualization/examples/BlockGamePlotSketch.js"></script>
+    <script type="module" src="JavaScript/Data Visualization/examples/BubbleGamePlotSketch.js"></script>
+    <script type="module" src="JavaScript/Data Visualization/examples/WordGamePlotSketch.js"></script>
+    <script type="module" src="JavaScript/Data Visualization/examples/GridGamePlotSketch.js"></script>
 	
-<!--    <script src="JavaScript/Data Visualization/examples/multiplePlots.js"></script>
-	<script src="JavaScript/Data Visualization/examples/multiplePanels.js"></script>
-	<script src="JavaScript/Data Visualization/examples/exponentialTrend.js"></script>
-	<script src="JavaScript/Data Visualization/examples/movingPoints.js"></script>
-	<script src="JavaScript/Data Visualization/examples/oktoberfest.js"></script>
-	<script src="JavaScript/Data Visualization/examples/twoVerticalAxes.js"></script>
-    <script src="JavaScript/Read-WriteToJSON Test File/compileData.js"></script>-->
 	<script>
 		// This is the sketch launcher
 		var p5Sketch;
