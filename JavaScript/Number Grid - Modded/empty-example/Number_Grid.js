@@ -130,7 +130,6 @@ var numGridSketch = function(p)
           }
         }
       }
-        tab++;
     }
 
     p.shuffleBoard = function() 
@@ -191,6 +190,7 @@ var numGridSketch = function(p)
 
                     if (count == cols * rows)
                     {
+                        tab += 1;
                         times.push(p.timeClock(true));
                         p.localStore();
                         console.log("Complete");

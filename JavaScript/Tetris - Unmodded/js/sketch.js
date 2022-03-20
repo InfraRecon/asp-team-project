@@ -94,8 +94,6 @@ var tetrisSketch = function(p)
         fallingPiece.show();
         
         p.timeClock(times);
-        tabs = playfield.getTabs();
-
     }
 
 
@@ -241,7 +239,7 @@ var tetrisSketch = function(p)
         }
 
     });
-    
+
     p.timeClock = function(stopTime)
     {
         if (p.frameRate() % 30) 
@@ -281,6 +279,6 @@ var tetrisSketch = function(p)
     p.localStore = function()
     {
         compileGameData(p,"BLOCKGAMETIME",0,times[times.length -1],false,1);
-        compileGameData(p,"BLOCKGAMETAB",1,tabs,false,1);
+        compileGameData(p,"BLOCKGAMETAB",1,playfield.getTabs(),false,1);
     }
 }

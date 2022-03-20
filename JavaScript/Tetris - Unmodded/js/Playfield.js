@@ -51,7 +51,7 @@ class Playfield {
 				this.grid.splice(row, 1)
 				// and add an empty row to the top
 				this.grid.unshift(new Array(this.cols).fill(this.foreground));
-                this.getTabs()
+                this.tabs += width;
                 this.times.push(this.p.timeClock(true));
                 this.p.localStore();
 			}
@@ -146,9 +146,6 @@ class Playfield {
     
     getTabs()
     {
-        this.tabs++
         return this.tabs;
     }
-
-
 }
