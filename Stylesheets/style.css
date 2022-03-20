@@ -42,15 +42,18 @@ img:hover
 .Assessment_Content
 {
     position: relative;
-    top:-5vw;
+    top:0vw;
     width: 100%;
+    
     transition: 0.9s ease;
-    background-image: url(Style%20Images/Best-meme-generator-software-886x590.jpg);
+    background-image: url(Style%20Images/20171002173141-GettyImages-489029936.jpg);
+    
+    /* Create the parallax scrolling effect */
     background-attachment: fixed;
-    background-position: right;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    transform: scale(1.05);
+    transform: scale(1);
     padding: 20px;
     
     z-index: 1;
@@ -585,7 +588,7 @@ div.desc
 .blog-post .row
 {
     position: relative;
-    background: rgb(0,0,0,0.25);
+    background: rgb(0,0,0,0.5);
     left: -10vw;
     transition: 1s ease;
     width: 45vw;
@@ -921,19 +924,7 @@ div.desc
     
     .Assessment_Content
     {
-        position: relative;
-        top:-5vw;
-        width: 100%;
-        transition: 0.9s ease;
-        background-image: url(Style%20Images/Best-meme-generator-software-886x590.jpg);
-        background-attachment: fixed;
-        background-position: right;
-        background-repeat: no-repeat;
-        background-size: cover;
         transform: scale(1.02);
-        padding: 20px;
-
-        z-index: 1;
     }
     .Assessment_Content:hover
     {
@@ -984,6 +975,7 @@ div.desc
         margin-right: 25px;
     }
 }
+
 
 @media screen and (max-width: 1000px) 
 {

@@ -379,19 +379,65 @@
 .marketing-site-features 
 {
     position: relative;
-    top:-5vw;
-    text-align: center;
-    background: rgb(0,0,0,0.5);
-    color: white;
+    top:0vw;
+    font-weight: bolder;
+    
+    background-image: url("Style%20Images/glenn-carstens-peters-npxXWgQ33ZQ-unsplash.jpg");
+    
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    z-index: 1;
+}
+
+.marketing-site-features01 
+{
+    position: relative;
     font-weight: bolder;
     
     background-image: url("Style%20Images/glenn-carstens-peters-npxXWgQ33ZQ-unsplash.jpg");
     
         /* Create the parallax scrolling effect */
     background-attachment: fixed;
-    background-position: right;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    
+    z-index: 1;
+}
+
+.marketing-site-features02
+{
+    position: relative;
+    top:0;
+    text-align: center;
+    color: white;
+    font-weight: bolder;
+    
+    background-image: url("Style%20Images/john-schnobrich-520023-unsplash.jpg");
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    z-index: 1;
+}
+
+.marketing-site-features03
+{
+    position: relative;
+    top:0;
+    height: auto;
+    text-align: center;
+    color: white;
+    font-weight: bolder;
+    
+    background: grey;
     
     z-index: 1;
 }
@@ -453,91 +499,6 @@
     z-index: 0;
 }
 
-@media only screen and (max-width: 1000px) 
-{
-    .marketing-site-features p
-    {
-        font-size: 15px;
-    }
-}
-
-.marketing-site-features01 
-{
-    position: relative;
-    top:0vw;
-    text-align: center;
-    color: white;
-    font-weight: bolder;
-    
-    background-image: url("Style%20Images/glenn-carstens-peters-npxXWgQ33ZQ-unsplash.jpg");
-    
-        /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: right;
-    background-repeat: no-repeat;
-    background-size: cover;
-    
-    z-index: 1;
-}
-
-.marketing-site-features02
-{
-    position: relative;
-    top:0;
-    text-align: center;
-    color: white;
-    font-weight: bolder;
-    
-    background-image: url("Style%20Images/Best-Abstract-Art-course-tutorial-class-certification-training-online-scaled.jpg");
-
-            /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: right;
-    background-repeat: no-repeat;
-    background-size: cover;
-    
-    z-index: 1;
-}
-
-.marketing-site-features03
-{
-    position: relative;
-    top:0vw;
-    height: auto;
-    text-align: center;
-    color: white;
-    font-weight: bolder;
-    
-    background-image: url("Style%20Images/istockphoto-1185382671-612x612.jpg");
-            /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: right;
-    background-repeat: no-repeat;
-    background-size: cover;
-    
-    z-index: 1;
-}
-
-.marketing-site-features04
-{
-    position: relative;
-    top:100px;
-    text-align: center;
-    color: white;
-    font-weight: bolder;
-    height: 1000px;
-    
-    background-image: url("Style%20Images/matric-results-online-2156-1120.jpg");
-    
-        /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: right;
-    background-repeat: no-repeat;
-    background-size: cover;
-    
-    z-index: 0;
-}
-
 .marketing-site-features-grad
 {
     padding: 1rem 1rem;
@@ -589,6 +550,14 @@
     text-align: center;
     color: white;
     font-weight: bolder;
+}
+
+@media only screen and (max-width: 1000px) 
+{
+    .marketing-site-features p
+    {
+        font-size: 15px;
+    }
 }
 
 
