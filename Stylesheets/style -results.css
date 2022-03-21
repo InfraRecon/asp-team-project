@@ -80,7 +80,7 @@ span.psw
     border: 0.2vw solid grey;
     width: 80%; /* Could be more or less, depending on screen size */
     font-family: calibri;
-   font-size: 20px;
+    font-size: 20px;
     color: white;
     
     text-shadow: 0.1vw 0vw black,

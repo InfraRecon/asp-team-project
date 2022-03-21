@@ -9,7 +9,7 @@
     
     background-color: teal;
     
-    z-index: 1;    
+    z-index: 2;
 }
 
 .mega-menu .dropdown-pane {
@@ -20,7 +20,7 @@
     right: 0% !important;
     position: fixed;
     top: 0vw;
-    z-index: 1;
+    z-index: 1;   
 }
 
 .mega-menu .menu {
@@ -167,7 +167,7 @@
     top: 0vw;
     margin-left:60px;
     font-size:15px;
-    z-index: 2;
+    z-index: 5;
 }
 
 .title {
@@ -209,7 +209,7 @@
             rgba(34, 34, 34, 0) 95%,
             rgba(34, 34, 34, 1)
     );
-    z-index: 1;
+    z-index: 11;
 }
 
 .marquee div {
@@ -374,6 +374,37 @@
         -ms-flex-direction: row;
         flex-direction: row;
     }
+}
+
+.mainImageheader
+{
+    position: fixed;
+    bottom:0;
+    height: auto;
+    width: 100%;
+    align-content: center;
+    right: 0;
+    text-align: center;
+    background: rgb(0,0,0,0.1);
+    z-index: 2;
+}
+
+.mainImageheader h2
+{
+    color: white;
+    font-weight: thin;
+    text-align: right;
+        padding: 5px;
+    font-size: 15px;
+    font-family: sans-serif;
+    z-index: 2;
+}
+
+.mainImageheader img
+{
+    padding: 5px;
+    float: right;
+    width: 30px;
 }
 
 .marketing-site-features 
@@ -685,7 +716,7 @@ span.notification-ticker-close {
     height: 50px;
     padding-left: 50px;
     top: 50px;
-    z-index:1;
+    z-index:2;
 }
 
 .top-bar-left a
@@ -1318,7 +1349,7 @@ span.psw
         top: 0vw;
         margin-left:60px;
         font-size:10px;
-        z-index: 2;
+        z-index: 3;
     }
     
     .title 

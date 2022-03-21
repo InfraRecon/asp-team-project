@@ -53,26 +53,16 @@ img:hover
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    
     transform: scale(1);
     padding: 20px;
     
-    z-index: 1;
+    z-index: 0;
 }
 .Assessment_Content:hover
 {
     transform: scale(0.95);
-    border: 0.1vw solid black;
-}
-
-.Block_Gradient02
-{
-    top: -85vw;
-    left: -1%;
-    position: relative;
-    height: 85vw;
-    width: 51%;
-    background-image: linear-gradient(black,black,black,black);
-    z-index: 1;
+    border: 0.2vw solid black;
 }
 
 /* Next & previous buttons */
@@ -138,7 +128,7 @@ img:hover
     background: rgb(0,100,100,0.8);
     border: 0.3vw solid transparent;
     color: black;
-    z-index: 2;
+    z-index: 1;
 
     transition: .3s ease;
 }
@@ -258,6 +248,7 @@ img:hover
 .slideshow-container01
 {
     position: relative;
+    top:3vw;
 }
 
 /* Next & previous buttons */
@@ -602,9 +593,7 @@ div.desc
     background: rgb(0,0,0,0.1);
     left: 15vw;
     width: 130px;
-    height: 130px;
-    border: 3px solid rgb(0,0,0,0.1);
-    
+    height: 130px;  
 }
 
 .blog-post .row img:hover
@@ -760,15 +749,15 @@ div.desc
 
 .Block_Gradient
 {
+    position: absolute;
     top: 0vw;
     left: 0vw;
-    position: absolute;
     height: 65vw;
     width: 100vw;
     
     background-image: linear-gradient(white,white,transparent,transparent,transparent,transparent,transparent,transparent,transparent,transparent,transparent,transparent,transparent,transparent,white,white,white);
     
-    z-index: 1;
+    z-index: 0;
 }
 
 .textHeader
@@ -789,7 +778,7 @@ div.desc
     animation-name: slider;
     animation-duration: 60s;
     animation-iteration-count: infinite;
-    z-index: 1;
+    z-index: 0;
 }
 
 .text01 
@@ -797,7 +786,7 @@ div.desc
     position: absolute;
     font-size: 1.5vw;
     padding: 1vw 1vw;
-    top: 15vw;
+    top: 16vw;
     left: 2vw;
     float: left;
     text-align: left;
@@ -807,7 +796,7 @@ div.desc
     background:  rgb(255,255,255, 0.5);
     width:35vw;
 
-    z-index: 1;
+    z-index: 0;
 }
 
 @media only screen and (max-width: 1000px) 
@@ -866,15 +855,15 @@ div.desc
         position: absolute;
         font-size: 5vw;
         padding: 1vw 1vw;
-        top: 25vw;
-        left: 23vw;
+        top: 40vw;
+        left: 15vw;
         float: left;
         text-align: left;
         font-weight: bolder;
         color: black;
         font-family: sans-serif;
         background:  rgb(255,255,255, 0.5);
-        width:50%;
+        width:70%;
     
         z-index: 1;
     }
@@ -884,15 +873,15 @@ div.desc
         position: absolute;
         font-size: 4vw;
         padding: 1vw 1vw;
-        top: 50vw;
-        left: 23vw;
+        top: 60vw;
+        left: 15vw;
         float: left;
         text-align: left;
         font-weight: normal;
         color: black;
         font-family: sans-serif;
         background:  rgb(255,255,255, 0.5);
-        width:50%;
+        width:70%;
         
         z-index: 1;
     }
@@ -920,16 +909,6 @@ div.desc
     {
         transform:  scale(1.05);
         border: 0.3vw solid white;
-    }
-    
-    .Assessment_Content
-    {
-        transform: scale(1.02);
-    }
-    .Assessment_Content:hover
-    {
-        transform: scale(0.99);
-        border: 0.1vw solid black;
     }
     
     .blog-post .row

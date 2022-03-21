@@ -135,34 +135,6 @@ img:hover
                  0vw -0.2vw white,
                  -0.2vw 0vw black;
 */
-    
-}
-
-.parallax
-{
-    /* The image used */
-    position: relative;
-    background-image: url("Style Images/wp2241790.png");
-
-    /* Set a specific height */
-    min-height: 10vw; 
-    width: 100vw;
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: right;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-@media only screen and (max-width: 1000px) 
-{   
-    .parallax
-    {
-        margin-top: -15vw;
-        background-attachment: fixed;
-        background-position: center;
-        min-height: 240vw;
-    }
 }
 
 /*Main Page IMAGE*/
@@ -545,49 +517,6 @@ img:hover
 }
 
 /* Slideshow containers */
-.slideshow-container01
-{
-    top: 210vw;
-    position: absolute;
-    padding: 1rem;
-    margin: auto;
-    transition: transform .60s; /* Animation */
-    text-align: center;
-    width: 100%; 
-    left: 0vw;
-    
-    background-image: url("Style%20Images/best-mental-health-apps-2021-1611590537.png");
-    
-        /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: right;
-    background-repeat: no-repeat;
-    background-size: cover;
-    
-    z-index: 1;
-}
-
-.slideshow-container02
-{
-    top: 270vw;
-    position: absolute;
-    padding: 2.5vw;
-    margin: auto;
-    transition: transform .60s; /* Animation */
-    text-align: center;
-    width: 100%; 
-    left: 0vw;
-    
-    background-image: url("Style%20Images/6676242.jpg");
-    
-        /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: right;
-    background-repeat: no-repeat;
-    background-size: cover;
-    
-    z-index: 1;
-}
 
 .slideshow-container-content
 {
