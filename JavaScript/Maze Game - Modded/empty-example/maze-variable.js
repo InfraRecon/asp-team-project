@@ -717,13 +717,11 @@ var mazeSketch = function (p) {
 
             var realTimeSeconds = p.round(timer / 30, 1);
             if (realTimeSeconds < 60) {
-                p.text("Time: " + realTimeSeconds + "'s", 0, 20);
                 if (stopTime == true) {
                     return realTimeSeconds;
                 }
             } else if (realTimeSeconds > 60) {
                 var realTimeMinutes = p.round(realTimeSeconds / 60 * 1, 2);
-                p.text("Time: " + realTimeMinutes + "'m", 0, 20);
                 if (stopTime == true) {
                     return realTimeMinutes;
                 }

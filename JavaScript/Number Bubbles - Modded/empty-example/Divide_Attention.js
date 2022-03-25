@@ -17,9 +17,9 @@ window.stopSketch = function() {
 var numBubblesSketch = function(p)
 {
     let numBalls = 5;
-    let spring = 0.05;
-    let gravity = 0.01;
-    let friction = -0.05;
+    let spring = 0.01;
+    let gravity = 0.001;
+    let friction = 0.1;
     let balls = [];
     var sumResult;
     var argNum1;
@@ -277,7 +277,7 @@ var numBubblesSketch = function(p)
                 }
 
                 // Draw particles.
-                for (let i = 0; i < particles.length/2; i++) 
+                for (let i = 0; i < particles.length/10; i++) 
                 {
                     var parts = particles[i];
                     var mass = parts.mass * parts.vel.mag() * 0.2;
@@ -349,7 +349,6 @@ var numBubblesSketch = function(p)
             var realTimeSeconds = p.round(timer/30,1);
             if(realTimeSeconds < 60)
             {
-                p.text("Time: " + realTimeSeconds + "'s",0, 20); 
                 if (stopTime == true)
                 {
                     return realTimeSeconds;
@@ -358,7 +357,6 @@ var numBubblesSketch = function(p)
             else if(realTimeSeconds > 60)
             {
                 var realTimeMinutes = p.round(realTimeSeconds/60 * 1,2);
-                p.text("Time: " + realTimeMinutes + "'m",0, 20);
                 if (stopTime == true)
                 {
                     return realTimeMinutes;
